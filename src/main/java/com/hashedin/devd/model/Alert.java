@@ -26,7 +26,7 @@ public class Alert {
 	private boolean isFrequentCommits;
 	private String userGitUrl;
 	private String projectUrl;
-	private String lastCommitedAt;
+	private int lastCommitedAt;
 	
 	public long getGitUserId() {
 		return gitUserId;
@@ -86,11 +86,11 @@ public class Alert {
 		this.userGitUrl = userGitUrl;
 	}
 
-	public String getLastCommitedAt() {
+	public int getLastCommitedAt() {
 		return lastCommitedAt;
 	}
 
-	public void setLastCommitedAt(String lastCommitedAt) {
+	public void setLastCommitedAt(int lastCommitedAt) {
 		this.lastCommitedAt = lastCommitedAt;
 	}
 

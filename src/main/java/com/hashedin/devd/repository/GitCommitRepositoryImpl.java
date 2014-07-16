@@ -6,9 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import com.hashedin.devd.model.Alert;
+import org.jvnet.hk2.annotations.Service;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.hashedin.devd.model.GitCommit;
 
+@Repository
+@Service
 public class GitCommitRepositoryImpl implements GitCommitRepository {
 
 	@PersistenceContext
@@ -30,11 +35,14 @@ public class GitCommitRepositoryImpl implements GitCommitRepository {
 	}
 
 	@Override
-	public GitCommit save(GitCommit gitCommit) {
+	@Transactional
+	public void save(List<GitCommit> gitCommit) {
 		// Saves the given task object and returns the same.
-		em.persist(gitCommit);
-		em.flush();
-		return gitCommit;
+		for( GitCommit gitcommit : gitCommit){
+			em.persist(gitcommit);
+			em.flush();
+		}
+		//return gitCommit;
 	}
 
 	@Override

@@ -3,11 +3,13 @@ package com.hashedin.devd.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.hashedin.devd.model.Alert;
 import com.hashedin.devd.repository.AlertRepository;
 
+@Repository
 @Service("alertService")
 public class AlertServiceImpl implements AlertService {
 
@@ -21,7 +23,7 @@ public class AlertServiceImpl implements AlertService {
 
 	@Override
 	public Alert save(Alert alert) {
-		alertRepository.save(alert);
+		alertRepository.saveSingleAlert(alert);
 		return alert;
 	}
 
