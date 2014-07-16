@@ -1,8 +1,8 @@
-package com.hashedin.repository;
+package com.hashedin.devd.repository;
 
 import java.util.List;
 
-import com.hashedin.model.GitProject;;
+import com.hashedin.devd.model.GitProject;
 
 public interface GitProjectRepository {
 	GitProject find(Long gitProjectId);

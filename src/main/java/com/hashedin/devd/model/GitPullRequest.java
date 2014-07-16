@@ -1,4 +1,4 @@
-package com.hashedin.model;
+package com.hashedin.devd.model;
 
 import java.util.List;
 

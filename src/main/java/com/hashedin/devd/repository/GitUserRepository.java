@@ -1,7 +1,8 @@
-package com.hashedin.repository;
+package com.hashedin.devd.repository;
 
 import java.util.List;
-import com.hashedin.model.GitUser;
+
+import com.hashedin.devd.model.GitUser;
 
 public interface GitUserRepository {
 	GitUser find(Long gitUserId);

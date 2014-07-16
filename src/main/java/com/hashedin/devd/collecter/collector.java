@@ -9,13 +9,7 @@ import 	com.hashedin.model.Alert;
 
 public class collector{
 	
-/*	public GitCommit collect(){
-		
-		integrationImpl object = new integrationImpl();
-		return  object.IDataFetch();
-	}
-*/
-   public  List<Alert>  collectAlert(){
+   public List<Alert>  collectAlert(){
 	
 	   AlertFilter object =new AlertFilter();
 	   

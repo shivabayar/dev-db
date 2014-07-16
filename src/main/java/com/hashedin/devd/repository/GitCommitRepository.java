@@ -1,8 +1,8 @@
-package com.hashedin.repository;
+package com.hashedin.devd.repository;
 
 import java.util.List;
 
-import com.hashedin.model.GitCommit;;
+import com.hashedin.devd.model.GitCommit;
 
 public interface GitCommitRepository {
 	GitCommit find(Long commitId);

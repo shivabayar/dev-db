@@ -1,4 +1,5 @@
-package com.hashedin.controller;
+package com.hashedin.devd.controller;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

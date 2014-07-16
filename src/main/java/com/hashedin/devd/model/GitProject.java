@@ -1,4 +1,4 @@
-package com.hashedin.model;
+package com.hashedin.devd.model;
 
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;

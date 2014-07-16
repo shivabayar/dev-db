@@ -1,4 +1,4 @@
-package com.hashedin.repository;
+package com.hashedin.devd.repository;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import com.hashedin.model.Alert;
-import com.hashedin.model.GitCommit;
+import com.hashedin.devd.model.Alert;
+import com.hashedin.devd.model.GitCommit;
 
 public class GitCommitRepositoryImpl implements GitCommitRepository {
 

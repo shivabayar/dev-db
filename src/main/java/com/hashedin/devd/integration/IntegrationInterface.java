@@ -1,8 +1,9 @@
-package com.hashedin.Integration;
+package com.hashedin.devd.integration;
+
 
 import java.util.List;
 
-import com.hashedin.model.GitCommit;
+import com.hashedin.devd.model.GitCommit;
 
 public  interface IntegrationInterface{
 	
