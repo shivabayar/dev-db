@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "gitCommits")
 @NamedQueries({ @NamedQuery(name = "GitCommit.findAll", query = "SELECT c FROM GitCommit c") })
-public class GitCommit {
+public class GitCommit implements GitMetric{
 
 	@Id
 	private long gitCommitId;
@@ -44,5 +44,10 @@ public class GitCommit {
 
 	public void setGitUserId(long gitUserId) {
 		this.gitUserId = gitUserId;
+	}
+
+	@Override
+	public Long getMetricId() {
+		return gitCommitId;
 	}
 }

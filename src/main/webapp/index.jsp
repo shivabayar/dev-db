@@ -33,7 +33,6 @@
   </head>
 
   <body>
-
   <!-- Fixed navbar -->
   <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">

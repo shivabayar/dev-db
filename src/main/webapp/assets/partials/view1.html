@@ -1,0 +1,65 @@
+<div class="jumbotron">
+	<h3>Welcome To My Web Page</h3>
+ 	<ul class="nav navbar-nav navbar-right">
+          <li><a href="#" data-toggle="modal" 
+ 				data-target="#myModal">Create Project</a></li>
+    </ul>
+    <div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+	    	<div class="modal-content">
+	        	<div class="modal-header">
+	            	<button type="button" class="close" data-dismiss="modal"
+	                	aria-hidden="true">&times;</button>
+	                <h4 class="modal-title">Create Project</h4>
+	            </div>
+	            <form name="projectForm">
+	            	<div class="modal-body">
+	            		<div class="form-group">
+				        	<label for="inputProjectName">Project Name</label>
+				           	<input type="text" class="form-control" id="inputProjectName"
+				           	 placeholder="Enter Project Name" ng-model="projects.projectName">
+					   		
+						</div>
+						<div class="form-group">
+							<label for="inputDescription">Description</label>
+							<input type="text" class="form-control" id="inputDescription"
+							 placeholder="Enter Project Description" ng-model="projects.projectDescription">
+							
+						</div>
+						<div class="form-group">
+						<label for="inputColList">Add Collaborators</label>
+						    <select class="form-control" id="inputColList" ng-model="projects.projectCordinators">
+						    <option value="nagarjun">Nagarjun</option>
+						    <option value="rahul">Rahul</option>
+						    <option value="ralph">Ralph</option>
+						    </select>
+						    
+						</div>
+					</div>
+			        <div class="modal-footer">
+	         			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	            		<button type="button" class="btn btn-primary" 
+	            		id="btnSent" ng-click="submit(projects)" data-dismiss="modal">Add Project</button>
+	            	</div>
+				</form>
+	        </div>
+	    </div>
+	</div>    
+    <div class="table-responsive">
+  		<table class="table table-striped table-bordered table-hover table-condensed">
+			<tr>
+				<td>Project Name</td>
+				<td>Description</td>
+				<td>Coordinator</td>
+				<td>Select</td>
+			</tr>
+	    		<tr ng-repeat="project in projects"><td><a href="#/partials/{{project.id}}">{{project.projectName}}</a></td>
+	    		<td>	{{project.projectDescription}}</td>
+	    		<td>	<div ng-repeat = "coordinator in project.projectCordinators"> {{coordinator}}</div></td>
+	    		<td>
+	    		<a href="#/partials/{{project.id}}">
+	    		<input type="radio"/></a>
+	    		</td></tr>
+	</table>
+  	</div>
+</div>

@@ -6,8 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+
 import com.hashedin.devd.model.Alert;
 
+@Repository("alertRepository")
 public class AlertRepositoryImpl implements AlertRepository {
 
 	@PersistenceContext

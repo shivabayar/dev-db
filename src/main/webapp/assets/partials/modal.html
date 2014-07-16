@@ -1,0 +1,62 @@
+<div id="myTaskModal" class="modal fade">
+		<div class="modal-dialog">
+	    	<div class="modal-content">
+	        	<div class="modal-header">
+	            	<button type="button" class="close" data-dismiss="modal"
+	                	>&times;</button>
+	                <h4 class="modal-title">Create Task</h4>
+	            </div>
+	            <form>
+	            	<div class="modal-body">
+	            		<div class="form-group">
+				        	<label for="inputTaskName">Task Name</label>
+				           	<input type="text" class="form-control" id="inputTaskName"
+				           	 placeholder="Enter Task Name" ng-model="projectDetais.taskName">
+					   		
+						</div>
+						<div class="form-group">
+							<label for="inputDueDate">Due Date</label>
+							<input type="text" class="form-control" id="inputDueDate"
+							 placeholder="Enter Project Description" ng-model="projectDetails.dueDate">
+							
+						</div>
+						<div class="form-group">
+						<label for="inputColList">Priority</label>
+						    <select class="form-control" id="inputColList" ng-model="projectDetails.priority">
+						    <option value="1">Shows Topper</option>
+						    <option value="2">High</option>
+						    <option value="3">Medium</option>
+						    <option value="4">Low</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						<label for="inputColList">Status</label>
+						    <select class="form-control" id="inputColList" ng-model="projectDetails.status">
+						    <option value="1">Created</option>
+						    <option value="2">Completed</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						<label for="inputColList">Assigned To</label>
+						    <select class="form-control" id="inputColList" ng-model="projectDetails.assignTo">
+						    <option value="nagarjun">Nagarjun</option>
+						    <option value="rahul">Rahul</option>
+						    <option value="ralph">Ralph</option>
+						    </select>
+						</div>
+						<div class="form-group">
+							<label for="inputDescription">Description</label>
+							<input type="text" class="form-control" id="inputDescription"
+							 placeholder="Enter Project Description" ng-model="projectDetails.Desc">
+							
+						</div>
+					</div>
+			        <div class="modal-footer">
+	         			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	            		<button type="button" class="btn btn-primary" data-dismiss="modal"
+	            		id="btnSent" data-ng-click="submit(projectDetails)">Add Task</button>
+	            	</div>
+				</form>
+	        </div>
+	    </div>
+	</div>
