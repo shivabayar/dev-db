@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @XmlRootElement
 @Entity
 @Table(name = "gitCommits")
-@NamedQueries({ @NamedQuery(name = "GitCommit.findAll", query = "SELECT gc FROM GitCommit gc") })
+@NamedQueries({ @NamedQuery(name = "GitCommit.findAll", query = "SELECT c FROM GitCommit c") })
 public class GitCommit {
 
 	@Id

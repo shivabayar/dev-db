@@ -1,6 +1,5 @@
 package com.hashedin.model;
 
-import java.util.List;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.GeneratedValue;
@@ -19,7 +18,7 @@ public class Alert {
 	@GeneratedValue
 	private long alertId;
 	private String userGitUrl;
-	private List<String> projectUrl;
+	private String projectUrl;
 	private String lastCommitedAt;
 	private int frequency;
 	private boolean brokeBuild;
@@ -38,14 +37,6 @@ public class Alert {
 
 	public void setUserGitUrl(String userGitUrl) {
 		this.userGitUrl = userGitUrl;
-	}
-
-	public List<String> getProjectUrl() {
-		return projectUrl;
-	}
-
-	public void setProjectUrl(List<String> projectUrl) {
-		this.projectUrl = projectUrl;
 	}
 
 	public String getLastCommitedAt() {
@@ -70,6 +61,14 @@ public class Alert {
 
 	public void setBrokeBuild(boolean brokeBuild) {
 		this.brokeBuild = brokeBuild;
+	}
+
+	public String getProjectUrl() {
+		return projectUrl;
+	}
+
+	public void setProjectUrl(String projectUrl) {
+		this.projectUrl = projectUrl;
 	}
 
 }

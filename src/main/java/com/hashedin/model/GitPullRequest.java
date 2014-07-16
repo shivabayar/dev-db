@@ -12,14 +12,14 @@ import javax.persistence.Table;
 @XmlRootElement
 @Entity
 @Table(name = "gitPullRequest")
-@NamedQueries({ @NamedQuery(name = "GitPullRequest.findAll", query = "SELECT gpr FROM GitPullRequest gpr") })
+@NamedQueries({ @NamedQuery(name = "GitPullRequest.findAll", query = "SELECT r FROM GitPullRequest r") })
 public class GitPullRequest {
 
 	@Id
 	private long gitPullRequestId;
 	private long gitUserId; // owner of the repo
 	private long gitProjectId;
-	private List<Long> requesterId;
+	private long requesterId;
 
 	public long getPullRequestId() {
 		return gitPullRequestId;
@@ -37,20 +37,20 @@ public class GitPullRequest {
 		this.gitUserId = gitUserId;
 	}
 
-	public List<Long> getRequesterId() {
-		return requesterId;
-	}
-
-	public void setRequesterId(List<Long> requesterId) {
-		this.requesterId = requesterId;
-	}
-
 	public long getGitProjectId() {
 		return gitProjectId;
 	}
 
 	public void setGitProjectId(long gitProjectId) {
 		this.gitProjectId = gitProjectId;
+	}
+
+	public long getRequesterId() {
+		return requesterId;
+	}
+
+	public void setRequesterId(long requesterId) {
+		this.requesterId = requesterId;
 	}
 
 }

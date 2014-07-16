@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @XmlRootElement
 @Entity
-@Table(name = "users")
+@Table(name = "gitUsers")
 @NamedQueries({ @NamedQuery(name = "GitUser.findAll", query = "SELECT u FROM GitUser u") })
 public class GitUser {
 
