@@ -27,7 +27,11 @@
         <property name="jpaPropertyMap">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+<<<<<<< HEAD
                 <entry key="hibernate.hbm2ddl.auto" value="update"></entry>
+=======
+                <entry key="hibernate.hbm2ddl.auto" value="create"></entry>
+>>>>>>> upstream/master
                 <entry key="hibernate.format_sql" value="true"></entry>
             </map>
         </property>
@@ -45,9 +49,15 @@
     <!-- Configure datasource: All the database related properties go here. -->
     <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+<<<<<<< HEAD
         <property name="url" value="jdbc:mysql://localhost:3306/taskTracker?autoReconnet=true"/>
         <property name="username" value="root"/>
         <property name="password" value="password"/>
+=======
+        <property name="url" value="jdbc:mysql://localhost:3306/devdb?autoReconnet=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="hasher123"/>
+>>>>>>> upstream/master
     </bean>
 
 </beans>
