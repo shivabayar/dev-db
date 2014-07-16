@@ -17,11 +17,58 @@ public class Alert {
 	@Id
 	@GeneratedValue
 	private long alertId;
+	private long gitUserId;
+	private long gitProjectId;
+	private long gitCommitId;
+	private long gitPullrequestId;
+	private long requesterId;
+	private boolean isBrokeBuild;
+	private boolean isFrequentCommits;
 	private String userGitUrl;
 	private String projectUrl;
 	private String lastCommitedAt;
-	private int frequency;
-	private boolean brokeBuild;
+	
+	public long getGitUserId() {
+		return gitUserId;
+	}
+
+	public void setGitUserId(long gitUserId) {
+		this.gitUserId = gitUserId;
+	}
+
+	public long getGitProjectId() {
+		return gitProjectId;
+	}
+
+	public void setGitProjectId(long gitProjectId) {
+		this.gitProjectId = gitProjectId;
+	}
+
+	public long getGitCommitId() {
+		return gitCommitId;
+	}
+
+	public void setGitCommitId(long gitCommitId) {
+		this.gitCommitId = gitCommitId;
+	}
+
+	public long getGitPullrequestId() {
+		return gitPullrequestId;
+	}
+
+	public void setGitPullrequestId(long gitPullrequestId) {
+		this.gitPullrequestId = gitPullrequestId;
+	}
+
+	public long getRequesterId() {
+		return requesterId;
+	}
+
+	public void setRequesterId(long requesterId) {
+		this.requesterId = requesterId;
+	}
+
+	
 
 	public long getAlertId() {
 		return alertId;
@@ -47,22 +94,6 @@ public class Alert {
 		this.lastCommitedAt = lastCommitedAt;
 	}
 
-	public int getFrequency() {
-		return frequency;
-	}
-
-	public void setFrequency(int frequency) {
-		this.frequency = frequency;
-	}
-
-	public boolean isBrokeBuild() {
-		return brokeBuild;
-	}
-
-	public void setBrokeBuild(boolean brokeBuild) {
-		this.brokeBuild = brokeBuild;
-	}
-
 	public String getProjectUrl() {
 		return projectUrl;
 	}
@@ -70,5 +101,23 @@ public class Alert {
 	public void setProjectUrl(String projectUrl) {
 		this.projectUrl = projectUrl;
 	}
+
+	public boolean isBrokeBuild() {
+		return isBrokeBuild;
+	}
+
+	public void setBrokeBuild(boolean isBrokeBuild) {
+		this.isBrokeBuild = isBrokeBuild;
+	}
+
+	public boolean isFrequentCommits() {
+		return isFrequentCommits;
+	}
+
+	public void setFrequentCommits(boolean isFrequentCommits) {
+		this.isFrequentCommits = isFrequentCommits;
+	}
+
+
 
 }
