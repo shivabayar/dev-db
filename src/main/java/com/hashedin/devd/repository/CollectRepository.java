@@ -1,8 +1,9 @@
-package com.hashedin.repository;
+package com.hashedin.devd.repository;
 
 import java.util.List;
 
-import com.hashedin.model.Alert;
+import com.hashedin.devd.model.Alert;
+
 
 public interface CollectRepository {
 

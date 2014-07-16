@@ -1,11 +1,12 @@
-package com.hashedin.service;
+package com.hashedin.devd.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.hashedin.model.GitMetric;
-import com.hashedin.repository.MetricRepository;
+
+import com.hashedin.devd.repository.MetricRepository;
+import com.hashedin.devd.model.GitMetric;
 
 @Service("metricService")
 public class MetricServiceImpl implements MetricService{

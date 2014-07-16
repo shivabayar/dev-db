@@ -1,19 +1,17 @@
 package com.hashedin.devd.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
 @Table(name = "gitPullRequest")
 @NamedQueries({ @NamedQuery(name = "GitPullRequest.findAll", query = "SELECT r FROM GitPullRequest r") })
-public class GitPullRequest {
+public class GitPullRequest implements GitMetric{
 
 	@Id
 	private long gitPullRequestId;
@@ -51,6 +49,12 @@ public class GitPullRequest {
 
 	public void setRequesterId(long requesterId) {
 		this.requesterId = requesterId;
+	}
+
+	@Override
+	public Long getMetricId() {
+		// FIXME : Need to generate and use a long database id here
+		return this.gitProjectId;
 	}
 
 }

@@ -1,11 +1,9 @@
-package com.hashedin.collecter;
+package com.hashedin.devd.collecter;
 
 import java.util.List;
 
-import  com.hashedin.Integration.integrationImpl;
-import  com.hashedin.Alert.AlertFilter;
-import 	com.hashedin.model.GitCommit ;
-import 	com.hashedin.model.Alert;
+import com.hashedin.devd.alert.AlertFilter;
+import com.hashedin.devd.model.Alert;
 
 public class collector{
 	

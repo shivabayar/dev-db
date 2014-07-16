@@ -1,8 +1,8 @@
-package com.hashedin.service;
+package com.hashedin.devd.service;
 
 import java.util.List;
 
-import com.hashedin.model.Alert;
+import com.hashedin.devd.model.Alert;
 
 public interface AlertService {
 	List<Alert> findAll();

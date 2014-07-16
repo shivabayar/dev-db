@@ -1,4 +1,4 @@
-package com.hashedin.rest;
+package com.hashedin.devd.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -17,15 +17,17 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hashedin.model.Alert;
-import com.hashedin.service.AlertService;
+import com.hashedin.devd.model.Alert;
+import com.hashedin.devd.service.AlertService;
 
 @Component
+
 @Path("/alerts")
 public class AlertResource {
 
 	@Autowired
 	private AlertService alertService;
+	
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Alert> listAll() {

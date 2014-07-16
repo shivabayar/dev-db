@@ -1,3 +1,4 @@
+package com.hashedin.devd.test;
 //package com.hashedin.test;
 //
 //import com.sun.jersey.api.client.Client;

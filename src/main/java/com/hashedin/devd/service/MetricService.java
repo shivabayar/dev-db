@@ -1,8 +1,8 @@
-package com.hashedin.service;
+package com.hashedin.devd.service;
 
 import java.util.List;
 
-import com.hashedin.model.GitMetric;
+import com.hashedin.devd.model.GitMetric;
 
 public interface MetricService {
 	List<GitMetric> findAll();

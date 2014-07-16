@@ -1,4 +1,4 @@
-package com.hashedin.repository;
+package com.hashedin.devd.repository;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hashedin.model.GitMetric;
+import com.hashedin.devd.model.GitMetric;
+
 
 @Repository("metricRepository")
-
 public class MetricRepositoryImpl implements MetricRepository {
 
 	@PersistenceContext
