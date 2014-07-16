@@ -15,10 +15,10 @@
       <div class="hero-unit">
         <div>
           <h2>
-            Welcome to Sample Spring Hibernate Application!
+            Welcome to Developer Dashboard (Dev-D)
           </h2>
           <p>
-            To get started, lets add couple of controllers and views to build your application.
+            Testing jenkins
           </p>
         </div>        
       </div>

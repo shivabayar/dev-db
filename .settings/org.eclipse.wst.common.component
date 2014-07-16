@@ -2,7 +2,14 @@
     <wb-module deploy-name="SpringJPAJerseyTemplate">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
         <property name="context-root" value="project"/>
         <property name="java-output-path" value="/SpringJPAJerseyTemplate/build/classes"/>
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <property name="context-root" value="project"/>
+        <property name="java-output-path" value="/SpringJPAJerseyTemplate/target/classes"/>
+>>>>>>> 1f0a1e86dd91519a53a8480059686b525ada3ec6
     </wb-module>
 </project-modules>
