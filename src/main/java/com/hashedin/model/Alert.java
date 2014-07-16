@@ -1,7 +1,6 @@
 package com.hashedin.model;
 
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.GeneratedValue;
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 
 @XmlRootElement
 @Entity
-@Table(name = "gitmetrics")
+@Table(name = "alerts")
 @NamedQueries({ @NamedQuery(name = "Alert.findAll", query = "SELECT a FROM Alert a") })
 public class Alert {
 
@@ -24,7 +23,7 @@ public class Alert {
 	private String lastCommitedAt;
 	private int frequency;
 	private boolean brokeBuild;
-	
+
 	public long getAlertId() {
 		return alertId;
 	}

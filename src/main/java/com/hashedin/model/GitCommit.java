@@ -2,7 +2,6 @@ package com.hashedin.model;
 
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -15,21 +14,20 @@ import javax.persistence.Table;
 public class GitCommit {
 
 	@Id
-	@GeneratedValue
-	private long commitId;
+	private long gitCommitId;
 
-	private String commitMessage;
+	private String gitCommitMessage;
 
 	private String timeStamp;
 
-	private GitUser gitUser;
+	private long gitUserId; // owner of the repo
 
 	public String getCommitMessage() {
-		return commitMessage;
+		return gitCommitMessage;
 	}
 
-	public void setCommitMessage(String commitMessage) {
-		this.commitMessage = commitMessage;
+	public void setCommitMessage(String gitCommitMessage) {
+		this.gitCommitMessage = gitCommitMessage;
 	}
 
 	public String getTimeStamp() {
@@ -40,11 +38,11 @@ public class GitCommit {
 		this.timeStamp = timeStamp;
 	}
 
-	public GitUser getGitUser() {
-		return gitUser;
+	public long getGitUserId() {
+		return gitUserId;
 	}
 
-	public void setGitUser(GitUser gitUser) {
-		this.gitUser = gitUser;
+	public void setGitUserId(long gitUserId) {
+		this.gitUserId = gitUserId;
 	}
 }
