@@ -11,5 +11,5 @@ public interface AlertRepository {
 	Alert update(Alert alert, Long alertId);
 	Alert delete(Long alertId);
 	Alert find(Long alertId);
-	void saveSingleAlert(Alert alert);
+	void save(Alert alert);
 }

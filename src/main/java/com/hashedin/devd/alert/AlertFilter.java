@@ -3,8 +3,8 @@ package com.hashedin.devd.alert;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jvnet.hk2.annotations.Service;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.hashedin.devd.model.Alert;
 import com.hashedin.devd.model.GitCommit;

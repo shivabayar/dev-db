@@ -1,12 +1,15 @@
 package com.hashedin.devd.repository;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import org.jvnet.hk2.annotations.Service;
+
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.hashedin.devd.model.Alert;
 
 @Repository("alertRepository")
@@ -42,7 +45,7 @@ public class AlertRepositoryImpl implements AlertRepository {
 	}
 	@Override
 	@Transactional
-	public void saveSingleAlert(Alert alert) {
+	public void save(Alert alert) {
 		// Saves the given task object and returns the same.
 			em.persist(alert);
 			em.flush();
