@@ -1,4 +1,4 @@
-package com.hashedin.devd.integration;
+package com.hashedin.devd.repository;
 
 
 import java.util.List;
@@ -7,6 +7,6 @@ import com.hashedin.devd.model.GitCommit;
 
 public  interface IntegrationInterface{
 	
-	GitCommit IDataFetch();
+	List<GitCommit> fetchData();
 
 }

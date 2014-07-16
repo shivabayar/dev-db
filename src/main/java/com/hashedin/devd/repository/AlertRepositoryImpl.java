@@ -1,16 +1,16 @@
 package com.hashedin.devd.repository;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
+import org.jvnet.hk2.annotations.Service;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.transaction.annotation.Transactional;
 import com.hashedin.devd.model.Alert;
 
 @Repository("alertRepository")
+@Service
 public class AlertRepositoryImpl implements AlertRepository {
 
 	@PersistenceContext
@@ -32,11 +32,21 @@ public class AlertRepositoryImpl implements AlertRepository {
 	}
 
 	@Override
-	public Alert save(Alert alert) {
+	@Transactional
+	public void save(List<Alert> alertList) {
 		// Saves the given task object and returns the same.
-		em.persist(alert);
-		em.flush();
-		return alert;
+		for ( Alert alert : alertList){
+			em.persist(alert);
+			em.flush();
+		}
+	}
+	@Override
+	@Transactional
+	public void saveSingleAlert(Alert alert) {
+		// Saves the given task object and returns the same.
+			em.persist(alert);
+			em.flush();
+		
 	}
 
 	@Override
@@ -50,5 +60,4 @@ public class AlertRepositoryImpl implements AlertRepository {
 		em.remove(taskToBeDeleted);
 		return taskToBeDeleted;
 	}
-
 }

@@ -1,14 +1,20 @@
-package com.hashedin.devd.integration;
+package com.hashedin.devd.repository;
 
 import com.hashedin.devd.model.GitCommit;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class integrationImpl implements IntegrationInterface {
+import org.jvnet.hk2.annotations.Service;
+import org.springframework.stereotype.Repository;
+
+@Repository
+@Service
+public class IntegrationImpl implements IntegrationInterface {
 
 	@Override
-	public GitCommit IDataFetch() {
+	public List<GitCommit> fetchData() {
+		
 
 		List<GitCommit> list = new ArrayList<GitCommit>();
 		GitCommit object = new GitCommit();
@@ -25,7 +31,7 @@ public class integrationImpl implements IntegrationInterface {
 			list.add(object);
 
 		}
-		return object;
+		return list;
 	}
 
 }

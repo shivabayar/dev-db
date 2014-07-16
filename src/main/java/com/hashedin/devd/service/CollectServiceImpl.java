@@ -16,13 +16,14 @@ public class CollectServiceImpl implements CollectService {
 	
 	@Override
 	public List<Alert> findAll() {
-		return collectRepository.findAll();
+		//return collectRepository.findAll();
+		return null;
 	}
 
 	@Override
 	public Alert save(Alert alert) {
-		collectRepository.save(alert);
-		return alert;
+		//collectRepository.save(alert);
+		return null;
 	}
 
 }
