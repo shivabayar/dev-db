@@ -22,9 +22,9 @@ public class IntegrationImpl implements IntegrationInterface {
 		// replace this with a function to return original data
 
 		for (int i = 0; i < 3; i++) {
-
+			object.setGitCommitId(i);
 			object.setTimeStamp("12-12-12");
-			object.setCommitMessage("first commit");
+			object.setGitCommitMessage("first commit");
 			object.setGitUserId(1223);
 			// add to database
 

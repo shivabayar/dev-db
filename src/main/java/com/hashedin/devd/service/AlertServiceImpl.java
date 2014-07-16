@@ -23,7 +23,7 @@ public class AlertServiceImpl implements AlertService {
 
 	@Override
 	public Alert save(Alert alert) {
-		alertRepository.saveSingleAlert(alert);
+		alertRepository.save(alert);
 		return alert;
 	}
 
