@@ -1,7 +1,7 @@
 package com.hashedin.model;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -9,14 +9,12 @@ import javax.persistence.Table;
 
 @XmlRootElement
 @Entity
-@Table(name = "users")
+@Table(name = "gitUsers")
 @NamedQueries({ @NamedQuery(name = "GitUser.findAll", query = "SELECT u FROM GitUser u") })
 public class GitUser {
 
 	@Id
-	@GeneratedValue
-	private long userId;
-	
+	private long gitUserId; // owner of the repo
 	private String email;
 	private String apiKey;
 	private String userProfileUrl;
@@ -29,14 +27,6 @@ public class GitUser {
 		this.email = email;
 	}
 
-	public String getApiKey() {
-		return apiKey;
-	}
-
-	public void setApiKey(String apiKey) {
-		this.apiKey = apiKey;
-	}
-
 	public String getUserProfileUrl() {
 		return userProfileUrl;
 	}
@@ -46,11 +36,19 @@ public class GitUser {
 	}
 
 	public long getUserId() {
-		return userId;
+		return gitUserId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setUserId(long gitUserId) {
+		this.gitUserId = gitUserId;
+	}
+
+	public String getApiKey() {
+		return apiKey;
+	}
+
+	public void setApiKey(String apiKey) {
+		this.apiKey = apiKey;
 	}
 
 }
