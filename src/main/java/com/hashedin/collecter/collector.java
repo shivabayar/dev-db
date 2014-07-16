@@ -1,10 +1,11 @@
-package main.java.com.hashedin.collecter;
+package com.hashedin.collecter;
+
 import java.util.List;
 
-import  main.java.com.hashedin.Integration.integrationImpl;
-import main.java.com.hashedin.Alert.AlertFilter;
-import 	main.java.com.hashedin.model.GitCommit ;
-import 	main.java.com.hashedin.model.Alert;
+import  com.hashedin.Integration.integrationImpl;
+import  com.hashedin.Alert.AlertFilter;
+import 	com.hashedin.model.GitCommit ;
+import 	com.hashedin.model.Alert;
 
 public class collector{
 	

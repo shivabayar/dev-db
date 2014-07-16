@@ -1,5 +1,5 @@
-package main.java.com.hashedin.Integration;
-import 	main.java.com.hashedin.model.GitCommit ;
+package com.hashedin.Integration;
+import 	com.hashedin.model.GitCommit ;
 import 	java.util.ArrayList;
 import 	java.util.List;
 
@@ -18,7 +18,7 @@ public class integrationImpl implements IntegrationInterface {
 		
 		object.setTimeStamp("12-12-12");
 		object.setCommitMessage("first commit");
-		object.setGitUser(1223);
+		object.setGitUserId(1223);
 		//add to database
 		
 		list.add(object);

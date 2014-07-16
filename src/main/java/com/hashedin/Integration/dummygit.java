@@ -1,6 +1,5 @@
-package main.java.com.hashedin.Integration;
+package com.hashedin.Integration;
 
-import org.json.simple.JSONObject;
 
 public class dummygit {
 

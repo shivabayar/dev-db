@@ -1,11 +1,11 @@
-package main.java.com.hashedin.Alert;
-import main.java.com.hashedin.Integration.integrationImpl;
+package com.hashedin.Alert;
+import com.hashedin.Integration.integrationImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import 	main.java.com.hashedin.model.Alert;
-import main.java.com.hashedin.model.GitCommit;
+import com.hashedin.model.Alert;
+import com.hashedin.model.GitCommit;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
