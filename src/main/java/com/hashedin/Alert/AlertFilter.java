@@ -6,6 +6,10 @@ import java.util.List;
 
 import 	main.java.com.hashedin.model.Alert;
 import main.java.com.hashedin.model.GitCommit;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+
 
 public class AlertFilter{
 	
@@ -23,7 +27,16 @@ public  List<Alert> alert(){
 	   Alert a  = new Alert();
 	   
 	   for (GitCommit i :list){
-		   
+		   /*
+		
+
+    	Calendar cal = Calendar.getInstance();
+    	cal.getTime();
+    	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    
+
+		    
+		    */
 		   
 		   
 		   
@@ -31,7 +44,7 @@ public  List<Alert> alert(){
 		   
 	//	 write code to check for alert  condition   
 		   
-		   if(i.getTimeStamp()=="timme specified " ){
+		   if(i.getTimeStamp()=="greater then time specified " ){
 			   
 			   a.setLastCommitedAt(i.getTimeStamp());
 			   
