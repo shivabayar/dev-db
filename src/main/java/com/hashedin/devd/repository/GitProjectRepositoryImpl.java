@@ -23,9 +23,6 @@ public class GitProjectRepositoryImpl implements GitProjectRepository {
 	@Autowired 
 	private IntegrationInterface integrationInterface;
 	
-	//@Autowired
-	//private GitProjectRepository gitProjectRepository;
-	
 	@Override
 	@Transactional
 	public void collectProject() {

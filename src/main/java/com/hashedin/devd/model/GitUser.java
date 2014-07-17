@@ -2,6 +2,7 @@ package com.hashedin.devd.model;
 
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -14,10 +15,12 @@ import javax.persistence.Table;
 public class GitUser {
 
 	@Id
+	@GeneratedValue
 	private long gitUserId; // owner of the repo
 	private String email;
 	private String apiKey;
 	private String userProfileUrl;
+	private String password;
 
 	public String getEmail() {
 		return email;
