@@ -6,9 +6,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.hashedin.devd.model.Alert;
 import com.hashedin.devd.model.GitUser;
 
+@Service
 public class GitUserRepositoryImpl implements GitUserRepository {
 
 	@PersistenceContext
@@ -30,6 +34,7 @@ public class GitUserRepositoryImpl implements GitUserRepository {
 	}
 
 	@Override
+	@Transactional
 	public GitUser save(GitUser gitUser) {
 		// Saves the given task object and returns the same.
 		em.persist(gitUser);

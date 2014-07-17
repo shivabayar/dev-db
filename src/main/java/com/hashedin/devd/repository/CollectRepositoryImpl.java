@@ -38,7 +38,5 @@ public class CollectRepositoryImpl implements CollectRepository {
 		gitCommitRepository.save(commits);
 		List<Alert> alertList = alertFilter.createAlerts(commits);
 		alertRepository.save(alertList);
-		
-		
 	}
 }

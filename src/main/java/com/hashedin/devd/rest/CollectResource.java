@@ -1,25 +1,15 @@
 package com.hashedin.devd.rest;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hashedin.devd.repository.CollectRepository;
-import com.hashedin.devd.service.CollectService;
-import com.hashedin.devd.model.Alert;
+//import com.hashedin.devd.service.CollectService;
 
 @Component
 @Path("/collects")

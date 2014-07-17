@@ -1,10 +1,10 @@
-package com.hashedin.devd.repository;
+package com.hashedin.devd.service;
 
 import java.util.List;
 
 import com.hashedin.devd.model.GitProject;
 
-public interface GitProjectRepository {
+public interface GitProjectService {
 	GitProject find(Long gitProjectId);
 
 	List<GitProject> findAll();
@@ -14,6 +14,4 @@ public interface GitProjectRepository {
 	GitProject update(GitProject gitProject, Long gitProjectId);
 
 	GitProject delete(Long gitProjectId);
-	void collectProject();
-	void save(List<GitProject> gitProject);
 }

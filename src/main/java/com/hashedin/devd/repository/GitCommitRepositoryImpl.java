@@ -58,4 +58,11 @@ public class GitCommitRepositoryImpl implements GitCommitRepository {
 		return commitToBeDeleted;
 	}
 
+	@Override
+	public GitCommit save(GitCommit gitCommit) {
+		em.persist(gitCommit);
+		em.flush();
+		return gitCommit;
+	}
+
 }
