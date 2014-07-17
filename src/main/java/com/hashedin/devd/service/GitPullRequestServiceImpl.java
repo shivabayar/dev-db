@@ -1,43 +1,36 @@
-package com.hashedin.devd.repository;
+package com.hashedin.devd.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hashedin.devd.model.GitPullRequest;
+import com.hashedin.devd.repository.GitPullRequestRepository;
 
-@Service
-public class GitPullRequestRepositoryImpl implements GitPullRequestRepository {
+@Service("gitPullRequestService")
+public class GitPullRequestServiceImpl implements GitPullRequestService {
 
-	@PersistenceContext
-	private EntityManager em;
+	@Autowired
+	private GitPullRequestRepository gitPullRequestRepository;
 
 	@Override
 	public GitPullRequest find(Long gitPullRequestId) {
 		// Returns the Task for given taskId.
-		return em.find(GitPullRequest.class, gitPullRequestId);
+		return gitPullRequestRepository.find(gitPullRequestId);
 	}
 
 	@Override
 	public List<GitPullRequest> findAll() {
 		// Returns all the tasks in our system.
-		TypedQuery<GitPullRequest> query = em.createNamedQuery(
-				"GitPullRequest.findAll", GitPullRequest.class);
-		List<GitPullRequest> results = query.getResultList();
-		return results;
+		return gitPullRequestRepository.findAll();
 	}
 
-	@Override
 	@Transactional
 	public GitPullRequest save(GitPullRequest gitPullRequest) {
 		// Saves the given task object and returns the same.
-		em.persist(gitPullRequest);
-		em.flush();
+		gitPullRequestRepository.save(gitPullRequest);
 		return gitPullRequest;
 	}
 
@@ -48,12 +41,10 @@ public class GitPullRequestRepositoryImpl implements GitPullRequestRepository {
 		return null;
 	}
 
-	@Override
+	@Transactional
 	public GitPullRequest delete(Long gitPullRequestId) {
-		GitPullRequest pullRequestToBeDeleted = em.find(GitPullRequest.class,
-				gitPullRequestId);
-		em.remove(pullRequestToBeDeleted);
-		return pullRequestToBeDeleted;
+		// Deletes the task with the give taskId and returns the same.
+		return gitPullRequestRepository.delete(gitPullRequestId);
 	}
 
 }
