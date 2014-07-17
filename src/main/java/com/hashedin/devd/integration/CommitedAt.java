@@ -1,12 +1,14 @@
 package com.hashedin.devd.integration;
 
 import com.hashedin.devd.realdata.JavaUrlConnectionReader;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.TimeZone;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,7 +17,7 @@ public class CommitedAt {
 
 	public int lastCommitedAt() {
 		JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
-
+		@SuppressWarnings("unused")
 		String output = realData.getUrlContents("url");
 
 		List<String> createdData = createdAt("output");
@@ -37,9 +39,9 @@ public class CommitedAt {
 
 		df.setTimeZone(tz);
 
+		@SuppressWarnings("unused")
 		String currentDate = df.format(new Date());
-	
-		
+
 		return 0;
 	}
 
@@ -60,7 +62,7 @@ public class CommitedAt {
 
 				if (type.endsWith("PushEvent")) {
 					String createdAt = (String) jsonObj.get("created_at");
-					// System.out.println(createdAt);
+
 					list.add(createdAt);
 				}
 			}

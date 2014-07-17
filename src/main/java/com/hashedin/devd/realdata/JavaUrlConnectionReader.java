@@ -1,22 +1,15 @@
 package com.hashedin.devd.realdata;
 
 import java.net.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.*;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class JavaUrlConnectionReader {
 
-	
-	public String getUrlContents(String theUrl) {
+	public String getUrlContents(String userName) {
 		StringBuilder content = new StringBuilder();
 
 		try {
-			URL url = new URL(theUrl);
+			URL url = new URL("https://api.github.com/users/" + userName+ "/events/public");
 			URLConnection urlConnection = url.openConnection();
 
 			BufferedReader bufferedReader = new BufferedReader(
