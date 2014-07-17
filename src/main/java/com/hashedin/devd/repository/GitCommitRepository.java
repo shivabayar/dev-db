@@ -16,5 +16,7 @@ public interface GitCommitRepository {
 	GitCommit update(GitCommit gitCommit, Long commitId);
 
 	GitCommit delete(Long commitId);
+	
+	GitCommit save(GitCommit gitCommit);
 
 }
