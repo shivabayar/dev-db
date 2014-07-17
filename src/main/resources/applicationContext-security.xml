@@ -13,7 +13,7 @@
 </global-method-security>
 
 <http auto-config="true" access-denied-page="/auth/denied">
-	<intercept-url pattern="/api/**" access="ROLE_ADMIN"/>
+	<intercept-url pattern="/api/user/**" access="ROLE_ADMIN"/>
 	<intercept-url pattern="/**" access="ROLE_ADMIN"/>
     
 </http>
