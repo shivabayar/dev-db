@@ -14,5 +14,6 @@ public interface GitPullRequestRepository {
 	GitPullRequest update(GitPullRequest gitPullRequest, Long gitPullRequestId);
 
 	GitPullRequest delete(Long gitPullRequestId);
+	void collectPullRequest();
 
 }
