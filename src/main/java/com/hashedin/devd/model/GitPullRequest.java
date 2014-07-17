@@ -1,6 +1,7 @@
 package com.hashedin.devd.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -14,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class GitPullRequest implements GitMetric{
 
 	@Id
+	@GeneratedValue
 	private long gitPullRequestId;
 	private long gitUserId; // owner of the repo
 	private long gitProjectId;

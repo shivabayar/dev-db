@@ -2,6 +2,7 @@ package com.hashedin.devd.repository;
 
 import com.hashedin.devd.model.GitCommit;
 import com.hashedin.devd.model.GitProject;
+import com.hashedin.devd.model.GitPullRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class IntegrationImpl implements IntegrationInterface {
 	public List<GitProject> fetchProject() {
 		List<GitProject> list = new ArrayList<GitProject>();
 		GitProject gitProject = new GitProject();
+		// replace this with a function to return original data
 		for(int i=1; i<4; i++){
 			gitProject.setGitPrjId(i);
 			System.out.println("/n"+i);
@@ -49,6 +51,21 @@ public class IntegrationImpl implements IntegrationInterface {
 		}
 		for(GitProject p : list){
 			System.out.println(p);
+		}
+		return list;
+	}
+
+	@Override
+	public List<GitPullRequest> fetchPullRequest() {
+		List<GitPullRequest> list = new ArrayList<GitPullRequest>();
+		GitPullRequest gitPullRequest = new GitPullRequest();
+		// replace this with a function to return original data
+		for(int i=1; i<4; i++){
+			gitPullRequest.setGitProjectId(i);
+			gitPullRequest.setRequesterId(i);
+			gitPullRequest.setUserId(1);
+			//add to database
+			list.add(gitPullRequest);
 		}
 		return list;
 	}

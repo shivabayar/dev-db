@@ -35,11 +35,11 @@ public class GitProjectResource {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<GitProject> list() {
+	public void list() {
 		// Handles GET on /tasks. Lists all the tasks we have in our system.
 		//return gitProjectService.findAll();
 		getProjectRepository.collectProject();
-		return null;
+		
 	}
 	
 	@GET

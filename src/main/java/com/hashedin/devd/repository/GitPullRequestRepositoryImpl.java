@@ -6,9 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hashedin.devd.model.GitProject;
 import com.hashedin.devd.model.GitPullRequest;
 
 @Service
@@ -16,6 +18,9 @@ public class GitPullRequestRepositoryImpl implements GitPullRequestRepository {
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Autowired
+	private IntegrationInterface integrationInterface;
 
 	@Override
 	public GitPullRequest find(Long gitPullRequestId) {
@@ -54,6 +59,16 @@ public class GitPullRequestRepositoryImpl implements GitPullRequestRepository {
 				gitPullRequestId);
 		em.remove(pullRequestToBeDeleted);
 		return pullRequestToBeDeleted;
+	}
+
+	@Override
+	@Transactional
+	public void collectPullRequest() {
+		List<GitPullRequest> pullRequest =integrationInterface.fetchPullRequest();
+		for( GitPullRequest pullrequest : pullRequest){
+			em.persist(pullrequest);
+			em.flush();
+		}
 	}
 
 }
