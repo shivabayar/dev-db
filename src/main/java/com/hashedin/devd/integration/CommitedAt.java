@@ -3,6 +3,7 @@ package com.hashedin.devd.integration;
 import com.hashedin.devd.realdata.JavaUrlConnectionReader;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -15,62 +16,112 @@ import org.json.JSONObject;
 
 public class CommitedAt {
 
-	public int lastCommitedAt() {
-		JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
-		@SuppressWarnings("unused")
-		String output = realData.getUrlContents("url");
+	
+	
+	//get recent commited At
+	
+	public int lastCommitedAt(String userName) {
+/*
+//		JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
+//		String output = realData.getUrlContents("userName");
 
-		List<String> createdData = createdAt("output");
-
-		int l = createdData.size();
-
-		String timeStamp = createdData.get(l);
-
-		l = differenceCalculator(timeStamp);
-
-		return l;
+		long l = 0;
+		String createdAt = "";
+		JSONArray jArray;
+		try {
+	//		jArray = new JSONArray(output);
+		//	createdAt = createdAt(output, jArray.length() - 1);
+		
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+*/
+		l = dayDifferenceCalculator(createdAt);
+		return (int) l;
 	}
 
-	public int differenceCalculator(String s) {
+	
 
-		TimeZone tz = TimeZone.getTimeZone("UTC");
+	public String createdAt(String output, int i) {
 
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
-
-		df.setTimeZone(tz);
-
-		@SuppressWarnings("unused")
-		String currentDate = df.format(new Date());
-
-		return 0;
-	}
-
-	public List<String> createdAt(String output) {
-
-		List<String> list = new ArrayList<String>();
-
+		String createdAt = "";
 		JSONArray jArray;
 
 		try {
 			jArray = new JSONArray(output);
 
-			for (int i = 0; i < jArray.length(); i++) {
+			JSONObject jsonObj = jArray.getJSONObject(i);
 
-				JSONObject jsonObj = jArray.getJSONObject(i);
+			createdAt = (String) jsonObj.get("created_at");
 
-				String type = (String) jsonObj.get("type");
-
-				if (type.endsWith("PushEvent")) {
-					String createdAt = (String) jsonObj.get("created_at");
-
-					list.add(createdAt);
-				}
-			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		return createdAt;
 	}
 
+	
+	
+	public void frequencyCalculator() {
+	//	JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
+	//	String output = realData.getUrlContents("userName");
+
+		long l = 0;
+		List<Integer> a = new ArrayList<Integer>();
+
+		String createdAt = "";
+		JSONArray jArray;
+		try {
+			jArray = new JSONArray(output);
+
+			for (int i = jArray.length() - 1; i > 7; --i) {
+
+				createdAt = createdAt(output, i);
+				l = dayDifferenceCalculator(createdAt);
+
+				int j;
+
+				j = (int) l;
+
+				a[j]++;
+
+			}
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public long dayDifferenceCalculator(String createdAt) {
+
+		long diffdays = 0;
+
+		createdAt = createdAt.replace('T', ' ');
+
+		StringBuilder sb = new StringBuilder(createdAt);
+		sb.deleteCharAt(19);
+		String resultString = sb.toString();
+
+		DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		Date d1 = null;
+		try {
+			d1 = df2.parse(resultString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Date d2 = new Date();
+
+		long diff = d2.getTime() - d1.getTime();
+
+		diffdays = diff / (24 * 60 * 60 * 1000);
+
+		return diffdays;
+	}
 }

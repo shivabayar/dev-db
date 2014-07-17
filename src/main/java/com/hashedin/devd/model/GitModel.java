@@ -9,7 +9,6 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-
 @XmlRootElement
 @Entity
 @Table(name = "gitModel")
