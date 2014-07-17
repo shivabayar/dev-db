@@ -1,20 +1,25 @@
- google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
       function drawChart() {
+        $.ajax({url:"commit.txt",success:function(result){
+      
+      jsonData = $.parseJSON(result);
+      console.log (jsonData);
+      console.log (jsonData.jan);
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Commits'],
-          ['Jan',  1000],
-          ['Feb',  1170],
-          ['March',  660],
-          ['April',  1030],
-          ['May',  1030],
-          ['June',  1030],
-          ['July',  1030],
-          ['Aug',  1030],
-          ['Sept',  1030],
-          ['Oct',  1030],
-          ['Nov',  1030],
-          ['Dec',  1030]
+          ['Jan',parseInt(jsonData.jan)],
+          ['Feb',  parseInt(jsonData.feb)],
+          ['March',  parseInt(jsonData.march)],
+          ['April',  parseInt(jsonData.april)],
+          ['May',  parseInt(jsonData.may)],
+          ['June',  parseInt(jsonData.june)],
+          ['July',  parseInt(jsonData.july)],
+          ['Aug',  parseInt(jsonData.aug)],
+          ['Sept',  parseInt(jsonData.sept)],
+          ['Oct',  parseInt(jsonData.oct)],
+          ['Nov',  parseInt(jsonData.nov)],
+          ['Dec',  parseInt(jsonData.dec)]
         ]);
 
         var options = {
@@ -23,4 +28,6 @@
 
         var chart = new google.visualization.LineChart(document.getElementById('commit_trend'));
         chart.draw(data, options);
-      }
+
+  }});
+}

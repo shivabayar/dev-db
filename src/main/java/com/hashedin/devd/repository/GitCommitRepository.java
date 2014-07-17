@@ -2,6 +2,8 @@ package com.hashedin.devd.repository;
 
 import java.util.List;
 
+import org.jvnet.hk2.annotations.Service;
+
 import com.hashedin.devd.model.GitCommit;
 
 public interface GitCommitRepository {
@@ -9,10 +11,12 @@ public interface GitCommitRepository {
 
 	List<GitCommit> findAll();
 
-	GitCommit save(GitCommit gitCommit);
+	void save(List<GitCommit> gitCommit);
 
 	GitCommit update(GitCommit gitCommit, Long commitId);
 
 	GitCommit delete(Long commitId);
+	
+	GitCommit save(GitCommit gitCommit);
 
 }

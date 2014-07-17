@@ -1,0 +1,157 @@
+<div class="jumbotron"> 
+	<ul class="nav navbar-nav navbar-right">
+          <li><a data-toggle="modal" 
+ 				data-target="#myTaskModal">Create Task</a></li>
+    </ul>
+	<div id="myTaskModal" class="modal fade">
+		<div class="modal-dialog">
+	    	<div class="modal-content">
+	        	<div class="modal-header">
+	            	<button type="button" class="close" data-dismiss="modal"
+	                	aria-hidden="true">&times;</button>
+	                <h4 class="modal-title">Create Task</h4>
+	            </div>
+	            <form>
+	            	<div class="modal-body">
+	            		<div class="form-group">
+				        	<label for="inputTaskName">Task Name</label>
+				           	<input type="text" class="form-control" id="inputTaskName"
+				           	 placeholder="Enter Task Name" ng-model="projectDetails.taskName">
+					   		
+						</div>
+						<div class="form-group">
+							<label for="inputDueDate">Due Date</label>
+							<input type="text" class="form-control" id="inputDueDate"
+							 placeholder="Enter Project Description" ng-model="projectDetails.dueDate">
+						</div>
+						<div class="form-group">
+						<label for="inputColList">Priority</label>
+						    <select class="form-control" id="inputColList" ng-model="projectDetails.priority">
+						    <option value="1">Shows Topper</option>
+						    <option value="2" selected>High</option>
+						    <option value="3">Medium</option>
+						    <option value="4">Low</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						<label for="inputColList">Status</label>
+						    <select class="form-control" id="inputColList" ng-model="projectDetails.status">
+						    <option value="pending" selected>Opened</option>
+						    <option value="done">Created</option>
+						    <option value="close">Completed</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						<label for="inputColList">Assigned To</label>
+						    <select class="form-control" id="inputColList" ng-model="projectDetails.assignTo">
+						    <option value="nagarjun">Nagarjun</option>
+						    <option value="rahul">Rahul</option>
+						    <option value="ralph">Ralph</option>
+						    </select>
+						</div>
+						<div class="form-group">
+							<label for="inputDescription">Description</label>
+							<input type="text" class="form-control" id="inputDescription"
+							 placeholder="Enter Project Description" ng-model="projectDetails.Desc">
+							
+						</div>
+					</div>
+			        <div class="modal-footer">
+	         			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	            		<button type="button" class="btn btn-primary" data-dismiss="modal"
+	            		id="btnSent" data-ng-click="submitTask(projectDetails)">Add Task</button>
+	            	</div>
+				</form>
+	        </div>
+	    </div>
+	</div>
+	<table class="table-responsive table table-bordered text-center center">
+		<tr>
+			<td>Collaborators</td>
+			 
+			<td>Filter by Priority
+			<div>
+				<input type="button" value="ShowsTopper" class="btn-Default" ng-click="myFilter = {priority: '1'}"/>
+				<input type="button" value="High" class="btn-Default" ng-click="myFilter = {priority: '2'}"/>
+				<input type="button" value="Medium" class="btn-Default" ng-click="myFilter = {priority: '3'}"/>
+				<input type="button" value="Low" class="btn-Default" ng-click="myFilter = {priority: '4'}"/>
+				<input type="button" value="No Filter" class="btn-Default" ng-click="myFilter = {priority: ''}"/>
+				Due Date <input ng-model="query"> 
+			</div>
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<div ng-repeat="projectDetail in details ">
+					<table class="col-md-10" ng-repeat = "task in projectDetail">
+						<tr>
+							<td rowspan="2"><img src="img/pencil_small.png"/></td>
+							<td>{{task.assignTo}}</td>
+						</tr>
+						<tr>
+							<td>{{task.role}}</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+			<td>
+				<table class="col-md-12">
+					<tr ng-repeat="projectDetail in details ">
+						<td>
+							<table class="table" ng-repeat = "task in projectDetail | filter:myFilter |
+							filter:query">
+								<tr>
+									<td>{{task.status}}</td>
+									<td>{{task.taskName}}</td>
+									<td>
+										<div ng-if = "task.status === 'pending'"> 
+											<a data-toggle="modal" 
+ 												data-target="#myTaskEditModal">Edit</a>
+ 												|
+ 											<a ng-click="task.status='done'">Complete</a>|
+ 											<a ng-click="task.status='close'">Close</a>
+ 										</div>
+ 									</td>
+								</tr>
+								<tr>
+									<td rowspan="4" ng-switch="task.status">
+										<div ng-switch-when="done">
+											<img src="img/gmail_small.png"/>
+										</div>
+										<div ng-switch-when="pending">
+											<img src="img/pencil_small.png"/>
+										</div>
+										<div ng-switch-when="close">
+											<img src="img/gmail_small.png"/>
+										</div>
+									</td>
+									<td rowspan="4">{{task.Desc}}</td>
+									<td>Assign To {{task.assignTo}}</td>
+								</tr>
+								<tr><td>Created On {{task.createdAt}}</td></tr>
+								<tr><td>Due On {{task.dueDate}}</td></tr>
+								<tr><td>Closed On {{task.closedOn}}</td></tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<div id="myTaskEditModal" class="modal fade">
+		<div class="modal-dialog">
+	    	<div class="modal-content">
+	        	<div class="modal-header">
+	            	<button type="button" class="close" data-dismiss="modal"
+	                	>&times;</button>
+	                <h4 class="modal-title">Create Task</h4>
+	            </div>
+	        </div>
+	    </div>
+</div>
+	            
+
+
+

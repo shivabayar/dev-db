@@ -1,4 +1,5 @@
 package com.hashedin.devd.rest;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 
@@ -21,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hashedin.devd.model.GitProject;
+import com.hashedin.devd.repository.GitProjectRepository;
 import com.hashedin.devd.service.GitProjectService;
 
 @Component
@@ -29,12 +31,24 @@ public class GitProjectResource {
 	
 	@Autowired
 	private GitProjectService gitProjectService;
+	@Autowired
+	private GitProjectRepository getProjectRepository;
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<GitProject> list() {
+	public void list() {
 		// Handles GET on /tasks. Lists all the tasks we have in our system.
-		return gitProjectService.findAll();
+		//return gitProjectService.findAll();
+		getProjectRepository.collectProject();
+		
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/get")
+	public List<GitProject> listAll(){
+		return getProjectRepository.findAll();
+
 	}
 
 	@GET
@@ -56,7 +70,7 @@ public class GitProjectResource {
 		// repository.
 		gitProjectService.save(gitProject);
 		response.setStatus(Response.Status.CREATED.getStatusCode());
-		return Response.created(new URI("/projects/" + gitProject.getProjectId()))
+		return Response.created(new URI("/projects/" + gitProject.getGitProjectId()))
 				.build();
 	}
 

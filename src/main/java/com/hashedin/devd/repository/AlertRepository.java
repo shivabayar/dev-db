@@ -4,10 +4,12 @@ import java.util.List;
 
 import com.hashedin.devd.model.Alert;
 
+
 public interface AlertRepository {
 	List<Alert> findAll();
-	Alert save(Alert metric);
+	void save(List<Alert> alertList);
 	Alert update(Alert alert, Long alertId);
 	Alert delete(Long alertId);
 	Alert find(Long alertId);
+	void save(Alert alert);
 }

@@ -1,7 +1,5 @@
 package com.hashedin.devd.rest;
 
-
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -19,39 +17,35 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hashedin.devd.model.Alert;
-import com.hashedin.devd.service.AlertService;
+import com.hashedin.devd.service.MetricService;
+import com.hashedin.devd.model.GitMetric;
 
 @Component
-
-@Path("/alerts")
-public class AlertResource {
+@Path("/metrics")
+public class MetricsResource {
 
 	@Autowired
-	private AlertService alertService;
-	
+	private MetricService metricService;
+
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Alert> listAll() {
-		// Handles GET on /alerts. Lists all the alerts we have in our
+	public List<GitMetric> listAll() {
+		// Handles GET on /metrics. Lists all the metrics we have in our
 		// system.
-		//System.out.println("\n\n\n"+"/alerts");
-		
-		return alertService.findAll();
+		return metricService.findAll();
 	}
 	
-
 	@POST
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response create(Alert alert,
+	public Response create(GitMetric metric,
 			@Context final HttpServletResponse response)
 			throws URISyntaxException {
-		// Handles POST on /alerts. Creates a new alert and adds it into an
+		// Handles POST on /metrics. Creates a new metrics and adds it into an
 		// repository.
-		alertService.save(alert);
+		metricService.save(metric);
 		response.setStatus(Response.Status.CREATED.getStatusCode());
-		return Response.created(new URI("/alerts/" + alert.getAlertId()))
+		return Response.created(new URI("/metrics/" + metric.getMetricId()))
 				.build();
 	}
 }

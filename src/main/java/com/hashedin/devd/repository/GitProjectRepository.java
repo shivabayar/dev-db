@@ -14,4 +14,6 @@ public interface GitProjectRepository {
 	GitProject update(GitProject gitProject, Long gitProjectId);
 
 	GitProject delete(Long gitProjectId);
+	void collectProject();
+	void save(List<GitProject> gitProject);
 }
