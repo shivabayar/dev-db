@@ -31,7 +31,7 @@ public class GitUserResource {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<GitUser> listAll() {
-		// Handles GET on /metrics. Lists all the metrics we have in our
+		// Handles GET on /user. Lists all the users we have in our
 		// system.
 		return gitUserService.findAll();
 	}
@@ -42,7 +42,7 @@ public class GitUserResource {
 	public Response create(GitUser user,
 			@Context final HttpServletResponse response)
 			throws URISyntaxException {
-		// Handles POST on /metrics. Creates a new metrics and adds it into an
+		// Handles POST on /user. Creates a new user and adds it into an
 		// repository.
 		gitUserService.save(user);
 		response.setStatus(Response.Status.CREATED.getStatusCode());
