@@ -10,8 +10,7 @@
   <title>Dev-D</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'>
-	 <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
   <!-- Bootstrap core CSS -->
   <link href="js/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="js/jquery.gritter/css/jquery.gritter.css" />
@@ -41,16 +40,7 @@
   </head>
 
   <body>
-  <div class="row">
-		<div class="col-md-3">home</div>
-		<div class="col-md-3">git hub</div>
-		<div class="col-md-3">JIRA</div>
-		<div class="col-md-3">Gmail</div>
-	</div>
-	
-	<div class="row">
 
-<<<<<<< HEAD
   <!-- Fixed navbar -->
   <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -213,20 +203,20 @@
           <input type="text" class="form-control search" placeholder="Search..." />
           <button id="sidebar-collapse" class="btn btn-default" style=""><i style="color:#fff;" class="fa fa-angle-left"></i></button>
         </div>
-=======
-		<div class="col-md-6 ">Graphs will be displayed here</div>
-
-		<div class="col-md-6">
-			<div class="row">
-				<h3>alerts</h3>
-				<h5>First Alert</h5>
-				<h5>First Alert</h5>
-				<h5>First Alert</h5>
-				<h5>First Alert</h5>
->>>>>>> d9710d8dc1630dea493549bdf58f33a95a11ec1e
 			</div>
+		</div>
+		
+		<div class="container-fluid" id="pcont">
+			<div class="page-head">
+				<h2>Charts</h2>
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li><a href="#">Charts</a></li>
+				  <li class="active">General</li>
+				</ol>
+			</div>		
+		<div class="cl-mcont">
 			<div class="row">
-<<<<<<< HEAD
 				<div class="col-sm-6 col-md-6">
 					<div class="block-flat">
 						<div class="header">
@@ -277,19 +267,6 @@
 		 </div>
 		</div> 
 		
-=======
-			
-				<h3>Activity Logs</h3>
-
-				<h5>first Activity</h5>
-				<h5>first Activity</h5>
-				<h5>first Activity</h5>
-				<h5>first Activity</h5>
-				<h5>first Activity</h5>
-
-			</div>
-		</div>
->>>>>>> d9710d8dc1630dea493549bdf58f33a95a11ec1e
 	</div>
 
   <script src="js/jquery.js"></script>
