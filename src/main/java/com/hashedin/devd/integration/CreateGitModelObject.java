@@ -34,8 +34,7 @@ public class CreateGitModelObject {
 
 				String type = (String) jsonObj.get("type");
 
-				if (type.endsWith("PushEvent")
-						|| type.endsWith("PullRequestEvent")) {
+				if (type.endsWith("PushEvent")|| type.endsWith("PullRequestEvent")) {
 
 					String createdAt1 = (String) jsonObj.get("created_at");
 
