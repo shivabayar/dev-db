@@ -1,13 +1,15 @@
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
       function drawChart() {
-        $.ajax({url:"commit.txt",success:function(result){
+        $.ajax({url:"api/gitcommittrendgraph",
+        	headers: { 'ACCEPT': 'application/json' },
+        	success:function(result){
       
       jsonData = $.parseJSON(result);
       console.log (jsonData);
       console.log (jsonData.jan);
         var data = google.visualization.arrayToDataTable([
-          ['Month', 'Commits'],
+          ['Day', 'Commits'],
           ['sun',parseInt(jsonData.sun)],
           ['mon',  parseInt(jsonData.mon)],
           ['tue',  parseInt(jsonData.tue)],

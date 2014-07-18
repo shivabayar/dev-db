@@ -7,7 +7,7 @@ google.setOnLoadCallback(drawChartPullRequestChart);
       console.log (jsonData);
       console.log (jsonData.jan);
         var data = google.visualization.arrayToDataTable([
-          ['Month', 'Pull Request'],
+          ['Day', 'Pull Request'],
           ['Sunday',parseInt(jsonData.sun)],
           ['Monday',  parseInt(jsonData.mon)],
           ['Tuesday',  parseInt(jsonData.tue)],
