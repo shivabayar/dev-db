@@ -19,7 +19,7 @@ public class Alert {
 	private long alertId;
 	private long gitPullrequestId;
 	private boolean isBrokeBuild;
-	private FrequentCommits;
+	private boolean FrequentCommits;
 	private int lastCommitedAt;
 	
 	public long getGitPullrequestId() {
@@ -54,14 +54,7 @@ public class Alert {
 		this.isBrokeBuild = isBrokeBuild;
 	}
 
-	public boolean isFrequentCommits() {
-		return isFrequentCommits;
-	}
-
-	public void setFrequentCommits(boolean isFrequentCommits) {
-		this.isFrequentCommits = isFrequentCommits;
-	}
-
+	
 
 
 }

@@ -18,25 +18,26 @@ public class CommitedAt {
 
 	
 	
-	//get recent commited At
+	//get recent commited At from database
+	
 	
 	public int lastCommitedAt(String userName) {
-/*
-//		JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
-//		String output = realData.getUrlContents("userName");
+
+		JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
+		String output = realData.getUrlContents("userName");
 
 		long l = 0;
 		String createdAt = "";
 		JSONArray jArray;
 		try {
-	//		jArray = new JSONArray(output);
-		//	createdAt = createdAt(output, jArray.length() - 1);
+		jArray = new JSONArray(output);
+		createdAt = createdAt(output, jArray.length() - 1);
 		
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
+
 		l = dayDifferenceCalculator(createdAt);
 		return (int) l;
 	}
