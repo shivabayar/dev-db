@@ -29,14 +29,7 @@
   <link rel="stylesheet" type="text/css" href="js/bootstrap.slider/css/slider.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />	
-	// <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	// <script type="text/javascript" src="js/jira_status_pie_chart.js"></script>
-	// <script type="text/javascript" src="js/commit_trend.js"></script>
-	// <script type="text/javascript" src="js/work_burndown.js"></script>
-	// <script type="text/javascript" src="js/pull_request.js"></script>
- //  <script type="text/javascript" src="js/ajax/get_commit_trend_data.js"></script>
- //  <script type="text/javascript" src="js/ajax/get_alert_data.js"></script> -->
-  </head>
+	
   </head>
 
   <body>
@@ -185,13 +178,19 @@
               </div>
             </div>
             <div class="header" style="margin-left:20px;">
-              <h3>Alerts</h3>
+              <h3><font color=white>
+              	Alerts for you
+              </font>
+              </h3>
             </div>
             <div style="margin-left:20px;" id="alerts-info"> <!--alerts div for displaying alert-->
               
             </div>
             <div style="margin-left:20px;" class="header">
-              <h3>Activity</h3>
+              <h3><font color=white>
+              	Your Activity
+              </font>
+              </h3>
             </div>
             <div style="margin-left:20px;" id="activity-info"> <!--alerts div for displaying alert-->
               
@@ -244,7 +243,7 @@
 
 					<div class="block-flat">
 						<div class="header">							
-							<h3>Bar Chart</h3>
+							<h3>Pull Requests for a week</h3>
 						</div>
 						<!-- <div class="content">
 							<div id="site_statistics2" style="height: 180px; padding: 0px; position: relative;"></div>							
@@ -299,10 +298,10 @@
 	<script type="text/javascript" src="js/jquery.flot/jquery.flot.labels.js"></script>
   <!-- google charts -->
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script type="text/javascript" src="js/jira_status_pie_chart.js"></script>
-  <script type="text/javascript" src="js/commit_trend.js"></script>
-  <script type="text/javascript" src="js/work_burndown.js"></script>
-  <script type="text/javascript" src="js/pull_request.js"></script>
+  <script type="text/javascript" src="js/ajax/jira_status_pie_chart.js"></script>
+  <script type="text/javascript" src="js/ajax/commit_trend.js"></script>
+  <script type="text/javascript" src="js/ajax/work_burndown.js"></script>
+  <script type="text/javascript" src="js/ajax/pull_request.js"></script>
   <!-- ajax calls -->
   <script type="text/javascript" src="js/ajax/get_commit_trend_data.js"></script>
   <script type="text/javascript" src="js/ajax/get_alert_data.js"></script>
