@@ -74,7 +74,7 @@ public class CommitedAt {
 
 		String createdAt = "";
 		JSONArray jArray;
-		try {
+		/*try {
 			jArray = new JSONArray(output);
 
 			for (int i = jArray.length() - 1; i > 7; --i) {
@@ -93,7 +93,7 @@ public class CommitedAt {
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 	
@@ -101,6 +101,9 @@ public class CommitedAt {
 
 		long diffdays = 0;
 
+		if(createdAt == null){
+			createdAt="";
+		}
 		createdAt = createdAt.replace('T', ' ');
 
 		StringBuilder sb = new StringBuilder(createdAt);

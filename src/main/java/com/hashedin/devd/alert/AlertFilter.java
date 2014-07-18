@@ -6,28 +6,37 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import com.hashedin.devd.integration.CommitedAt;
 import com.hashedin.devd.model.Alert;
-import com.hashedin.devd.model.GitCommit;
-
+import com.hashedin.devd.model.GitModel;
+import com.hashedin.devd.alert.AlertFunction;
 
 @Service
 @Repository
 public class AlertFilter {
 
-	public Alert createFilter(){
+	private List<String> CreatedAtList;
 
-		CommitedAt c = new CommitedAt();
+	public Alert createFilter(List<GitModel> gitModel) {
+
 		Alert a = new Alert();
-		a.setLastCommitedAt(c.lastCommitedAt("tanwanirahul"));
-		
-		
+		AlertFunction alert = new AlertFunction();
+
+		CreatedAtList = new ArrayList<String>();
+
+		for (GitModel model : gitModel) {
+			CreatedAtList.add(model.getCreatedAt());
+		}
+		int i = CreatedAtList.size()-1;
+		GitModel model = gitModel.get(i);
+		String createdAt = model.getCreatedAt();
+		a.setLastCommitedAt(alert.lastCommitedAt(createdAt));
+		a.setFrequentCommits(alert.isFrequentComits(CreatedAtList));
 
 		return a;
 	}
 
-	public List<Alert> createAlerts(List<GitCommit> commits) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<String> getCreatedAtList() {
+		return CreatedAtList;
 	}
+
 }

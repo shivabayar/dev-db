@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @XmlRootElement
 @Entity
 @Table(name = "alerts")
-@NamedQueries({ @NamedQuery(name = "Alert.findAll", query = "SELECT a FROM Alert a") })
+//@NamedQuery(name = "Alert.find", query = "SELECT a FROM Alert a where gitUserId=:userid")})
+@NamedQueries({ @NamedQuery(name = "Alert.findAll", query = "SELECT a FROM Alert a")})
 public class Alert {
 
 	@Id
@@ -19,10 +20,29 @@ public class Alert {
 	private long alertId;
 	private long gitPullrequestId;
 	private boolean isBrokeBuild;
+
 	private boolean isFrequentCommits;
+
 	private int lastCommitedAt;
 	private String url;
 	private long gitUserId;
+
+	public long getGitUserId() {
+		return gitUserId;
+	}
+
+	public void setGitUserId(long gitUserId) {
+		this.gitUserId = gitUserId;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 
 	public long getGitPullrequestId() {
 		return gitPullrequestId;
@@ -56,28 +76,12 @@ public class Alert {
 		this.isBrokeBuild = isBrokeBuild;
 	}
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public long getGitUserId() {
-		return gitUserId;
-	}
-
-	public void setGitUserId(long gitUserId) {
-		this.gitUserId = gitUserId;
-	}
-
 	public boolean isFrequentCommits() {
 		return isFrequentCommits;
+
 	}
 
-	public void setFrequentCommits(boolean isFrequentCommits) {
-		this.isFrequentCommits = isFrequentCommits;
+	public void setFrequentCommits(boolean frequentCommits) {
+		frequentCommits = frequentCommits;
 	}
-
 }
