@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @XmlRootElement
 @Entity
 @Table(name = "alerts")
-@NamedQueries({ @NamedQuery(name = "Alert.findAll", query = "SELECT a FROM Alert a") })
+@NamedQueries({ @NamedQuery(name = "Alert.findAll", query = "SELECT a FROM Alert a"),
+	@NamedQuery(name = "Alert.find", query = "SELECT a FROM Alert a where gitUserId=:userid")})
 public class Alert {
 
 	@Id
@@ -19,10 +20,19 @@ public class Alert {
 	private long alertId;
 	private long gitPullrequestId;
 	private boolean isBrokeBuild;
-	private boolean FrequentCommits;
+	private boolean IsFrequentCommits;
 	private int lastCommitedAt;
 	private String url;
-	
+	private long gitUserId;
+
+	public long getGitUserId() {
+		return gitUserId;
+	}
+
+	public void setGitUserId(long gitUserId) {
+		this.gitUserId = gitUserId;
+	}
+
 	public String getUrl() {
 		return url;
 	}
@@ -64,10 +74,10 @@ public class Alert {
 	}
 
 	public boolean isFrequentCommits() {
-		return FrequentCommits;
+		return IsFrequentCommits;
 	}
 
 	public void setFrequentCommits(boolean frequentCommits) {
-		FrequentCommits = frequentCommits;
+		frequentCommits = frequentCommits;
 	}
 }

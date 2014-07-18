@@ -37,16 +37,17 @@ public class CollectRepositoryImpl implements CollectRepository {
 	@Autowired
 	private AlertRepository alertRepository;
 	
-	private CreateGitModelObject createGitModelObject;
+	private CreateGitModelObject createGitModelObject = new CreateGitModelObject();
 	@Override
+	@Transactional
 	public void collect() {
 		
-		List<GitCommit> commits =integrationInterface.fetchData();
-		gitCommitRepository.save(commits);
+		//List<GitCommit> commits =integrationInterface.fetchData();
+		//gitCommitRepository.save(commits);
 		//List<Alert> alertList = alertFilter.createAlerts(commits);
 		//alertRepository.save(alertList);
-		//List<GitModel> listGitModel = createGitModelObject.gitModelObject(" https://api.github.com/users/tanwanirahul/events/public");
-		//save(listGitModel);
+		List<GitModel> listGitModel = createGitModelObject.gitModelObject("tanwanirahul");
+		save(listGitModel);
 	}
 	
 	@Override
