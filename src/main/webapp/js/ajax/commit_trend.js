@@ -1,7 +1,7 @@
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
       function drawChart() {
-        $.ajax({url:"api/gitcommittrendgraph",
+        $.ajax({url:"commit.txt",
         	headers: { 'ACCEPT': 'application/json' },
         	success:function(result){
       
