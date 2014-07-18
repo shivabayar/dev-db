@@ -74,7 +74,7 @@ public class CommitedAt {
 
 		String createdAt = "";
 		JSONArray jArray;
-		try {
+		/*try {
 			jArray = new JSONArray(output);
 
 			for (int i = jArray.length() - 1; i > 7; --i) {
@@ -93,7 +93,7 @@ public class CommitedAt {
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 	

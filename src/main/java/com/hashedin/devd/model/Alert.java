@@ -21,7 +21,16 @@ public class Alert {
 	private boolean isBrokeBuild;
 	private boolean FrequentCommits;
 	private int lastCommitedAt;
+	private String url;
 	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public long getGitPullrequestId() {
 		return gitPullrequestId;
 	}
@@ -54,7 +63,11 @@ public class Alert {
 		this.isBrokeBuild = isBrokeBuild;
 	}
 
-	
+	public boolean isFrequentCommits() {
+		return FrequentCommits;
+	}
 
-
+	public void setFrequentCommits(boolean frequentCommits) {
+		FrequentCommits = frequentCommits;
+	}
 }

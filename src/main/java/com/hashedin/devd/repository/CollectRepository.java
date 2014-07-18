@@ -12,4 +12,6 @@ public interface CollectRepository {
 	void collect();
 
 	void save(List<GitModel> gitModel);
+
+	List<GitModel> find(Long userId);
 }

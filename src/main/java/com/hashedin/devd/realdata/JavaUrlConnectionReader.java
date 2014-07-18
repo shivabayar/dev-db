@@ -24,6 +24,8 @@ public class JavaUrlConnectionReader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("Output\n\n\n"+content.toString());
+		
 		return content.toString();
 	}
 
