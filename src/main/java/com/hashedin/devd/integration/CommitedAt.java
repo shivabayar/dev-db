@@ -66,8 +66,8 @@ public class CommitedAt {
 	
 	
 	public void frequencyCalculator() {
-	//	JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
-	//	String output = realData.getUrlContents("userName");
+		JavaUrlConnectionReader realData = new JavaUrlConnectionReader();
+		String output = realData.getUrlContents("userName");
 
 		long l = 0;
 		List<Integer> a = new ArrayList<Integer>();
@@ -86,7 +86,7 @@ public class CommitedAt {
 
 				j = (int) l;
 
-				a[j]++;
+//				a[j]++;
 
 			}
 
