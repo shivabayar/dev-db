@@ -101,6 +101,9 @@ public class CommitedAt {
 
 		long diffdays = 0;
 
+		if(createdAt == null){
+			createdAt="";
+		}
 		createdAt = createdAt.replace('T', ' ');
 
 		StringBuilder sb = new StringBuilder(createdAt);

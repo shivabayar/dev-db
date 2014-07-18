@@ -44,10 +44,11 @@ public class CollectRepositoryImpl implements CollectRepository {
 		
 		//List<GitCommit> commits =integrationInterface.fetchData();
 		//gitCommitRepository.save(commits);
-		//List<Alert> alertList = alertFilter.createAlerts(commits);
-		//alertRepository.save(alertList);
-		List<GitModel> listGitModel = createGitModelObject.gitModelObject("tanwanirahul");
+			List<GitModel> listGitModel = createGitModelObject.gitModelObject("tanwanirahul");
 		save(listGitModel);
+		Alert alertList = alertFilter.createFilter(listGitModel);
+		alertRepository.save(alertList);
+	
 	}
 	
 	@Override
