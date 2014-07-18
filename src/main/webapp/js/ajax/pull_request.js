@@ -1,6 +1,6 @@
 google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
-      function drawChart() {
+google.setOnLoadCallback(drawChartPullRequestChart);
+      function drawChartPullRequestChart() {
         $.ajax({url:"commit.txt",success:function(result){
       
       jsonData = $.parseJSON(result);
@@ -8,18 +8,13 @@ google.setOnLoadCallback(drawChart);
       console.log (jsonData.jan);
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Pull Request'],
-          ['Jan',parseInt(jsonData.jan)],
-          ['Feb',  parseInt(jsonData.feb)],
-          ['March',  parseInt(jsonData.march)],
-          ['April',  parseInt(jsonData.april)],
-          ['May',  parseInt(jsonData.may)],
-          ['June',  parseInt(jsonData.june)],
-          ['July',  parseInt(jsonData.july)],
-          ['Aug',  parseInt(jsonData.aug)],
-          ['Sept',  parseInt(jsonData.sept)],
-          ['Oct',  parseInt(jsonData.oct)],
-          ['Nov',  parseInt(jsonData.nov)],
-          ['Dec',  parseInt(jsonData.dec)]
+          ['Sunday',parseInt(jsonData.sun)],
+          ['Monday',  parseInt(jsonData.mon)],
+          ['Tuesday',  parseInt(jsonData.tue)],
+          ['Wednesday',  parseInt(jsonData.wed)],
+          ['Thursday',  parseInt(jsonData.thu)],
+          ['Friday',  parseInt(jsonData.fri)],
+          ['Saturday',  parseInt(jsonData.sat)]
         ]);
 
         var options = {

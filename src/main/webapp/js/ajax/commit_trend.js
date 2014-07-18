@@ -8,18 +8,13 @@ google.setOnLoadCallback(drawChart);
       console.log (jsonData.jan);
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Commits'],
-          ['Jan',parseInt(jsonData.jan)],
-          ['Feb',  parseInt(jsonData.feb)],
-          ['March',  parseInt(jsonData.march)],
-          ['April',  parseInt(jsonData.april)],
-          ['May',  parseInt(jsonData.may)],
-          ['June',  parseInt(jsonData.june)],
-          ['July',  parseInt(jsonData.july)],
-          ['Aug',  parseInt(jsonData.aug)],
-          ['Sept',  parseInt(jsonData.sept)],
-          ['Oct',  parseInt(jsonData.oct)],
-          ['Nov',  parseInt(jsonData.nov)],
-          ['Dec',  parseInt(jsonData.dec)]
+          ['sun',parseInt(jsonData.sun)],
+          ['mon',  parseInt(jsonData.mon)],
+          ['tue',  parseInt(jsonData.tue)],
+          ['wed',  parseInt(jsonData.wed)],
+          ['thu',  parseInt(jsonData.thu)],
+          ['fri',  parseInt(jsonData.fri)],
+          ['sat',  parseInt(jsonData.sat)]
         ]);
 
         var options = {

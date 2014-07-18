@@ -19,11 +19,11 @@ public class Alert {
 	private long alertId;
 	private long gitPullrequestId;
 	private boolean isBrokeBuild;
-	private boolean FrequentCommits;
+	private boolean isFrequentCommits;
 	private int lastCommitedAt;
 	private String url;
 	private long gitUserId;
-	
+
 	public long getGitPullrequestId() {
 		return gitPullrequestId;
 	}
@@ -56,14 +56,6 @@ public class Alert {
 		this.isBrokeBuild = isBrokeBuild;
 	}
 
-	public boolean isFrequentCommits() {
-		return FrequentCommits;
-	}
-
-	public void setFrequentCommits(boolean frequentCommits) {
-		FrequentCommits = frequentCommits;
-	}
-
 	public String getUrl() {
 		return url;
 	}
@@ -80,7 +72,12 @@ public class Alert {
 		this.gitUserId = gitUserId;
 	}
 
-	
+	public boolean isFrequentCommits() {
+		return isFrequentCommits;
+	}
 
+	public void setFrequentCommits(boolean isFrequentCommits) {
+		this.isFrequentCommits = isFrequentCommits;
+	}
 
 }
