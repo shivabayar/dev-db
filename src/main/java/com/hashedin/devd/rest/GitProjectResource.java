@@ -1,5 +1,4 @@
 package com.hashedin.devd.rest;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 
@@ -48,7 +47,6 @@ public class GitProjectResource {
 	@Path("/get")
 	public List<GitProject> listAll(){
 		return getProjectRepository.findAll();
-
 	}
 
 	@GET

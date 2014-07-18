@@ -17,41 +17,11 @@ public class Alert {
 	@Id
 	@GeneratedValue
 	private long alertId;
-	private long gitUserId;
-	private long gitProjectId;
-	private long gitCommitId;
 	private long gitPullrequestId;
-	private long requesterId;
 	private boolean isBrokeBuild;
-	private boolean isFrequentCommits;
-	private String userGitUrl;
-	private String projectUrl;
+	private boolean FrequentCommits;
 	private int lastCommitedAt;
 	
-	public long getGitUserId() {
-		return gitUserId;
-	}
-
-	public void setGitUserId(long gitUserId) {
-		this.gitUserId = gitUserId;
-	}
-
-	public long getGitProjectId() {
-		return gitProjectId;
-	}
-
-	public void setGitProjectId(long gitProjectId) {
-		this.gitProjectId = gitProjectId;
-	}
-
-	public long getGitCommitId() {
-		return gitCommitId;
-	}
-
-	public void setGitCommitId(long gitCommitId) {
-		this.gitCommitId = gitCommitId;
-	}
-
 	public long getGitPullrequestId() {
 		return gitPullrequestId;
 	}
@@ -60,30 +30,12 @@ public class Alert {
 		this.gitPullrequestId = gitPullrequestId;
 	}
 
-	public long getRequesterId() {
-		return requesterId;
-	}
-
-	public void setRequesterId(long requesterId) {
-		this.requesterId = requesterId;
-	}
-
-	
-
 	public long getAlertId() {
 		return alertId;
 	}
 
 	public void setAlertId(long alertId) {
 		this.alertId = alertId;
-	}
-
-	public String getUserGitUrl() {
-		return userGitUrl;
-	}
-
-	public void setUserGitUrl(String userGitUrl) {
-		this.userGitUrl = userGitUrl;
 	}
 
 	public int getLastCommitedAt() {
@@ -94,14 +46,6 @@ public class Alert {
 		this.lastCommitedAt = lastCommitedAt;
 	}
 
-	public String getProjectUrl() {
-		return projectUrl;
-	}
-
-	public void setProjectUrl(String projectUrl) {
-		this.projectUrl = projectUrl;
-	}
-
 	public boolean isBrokeBuild() {
 		return isBrokeBuild;
 	}
@@ -110,14 +54,7 @@ public class Alert {
 		this.isBrokeBuild = isBrokeBuild;
 	}
 
-	public boolean isFrequentCommits() {
-		return isFrequentCommits;
-	}
-
-	public void setFrequentCommits(boolean isFrequentCommits) {
-		this.isFrequentCommits = isFrequentCommits;
-	}
-
+	
 
 
 }

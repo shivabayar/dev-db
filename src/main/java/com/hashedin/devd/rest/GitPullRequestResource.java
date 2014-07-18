@@ -1,5 +1,6 @@
 package com.hashedin.devd.rest;
 
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -16,27 +17,30 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import com.hashedin.devd.model.GitPullRequest;
+import com.hashedin.devd.repository.GitProjectRepository;
 import com.hashedin.devd.repository.GitPullRequestRepository;
 import com.hashedin.devd.service.GitPullRequestService;
-
 @Component
 @Path("/gitPullRequests")
 public class GitPullRequestResource {
 	@Autowired
 	private GitPullRequestService gitPullRequestService;
+	
 	@Autowired
 	private GitPullRequestRepository gitPullRequestRepository;
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public void list() {
+	public void  list() {
 		// Handles GET on /tasks. Lists all the tasks we have in our system.
 		gitPullRequestRepository.collectPullRequest();
 	}
-
+	
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/get")

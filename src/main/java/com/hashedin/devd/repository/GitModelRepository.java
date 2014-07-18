@@ -4,12 +4,8 @@ import java.util.List;
 
 import com.hashedin.devd.model.GitModel;
 
-
-public interface CollectRepository {
-
-	//List<Alert> findAll();
-	//Alert save(Alert alert);
-	void collect();
+public interface GitModelRepository {
 
 	void save(List<GitModel> gitModel);
+
 }

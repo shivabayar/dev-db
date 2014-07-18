@@ -1,7 +1,5 @@
 package com.hashedin.devd.rest;
 
-
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -40,7 +38,6 @@ public class AlertResource {
 		return alertService.findAll();
 	}
 	
-
 	@POST
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })

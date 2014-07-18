@@ -3,6 +3,7 @@ package com.hashedin.devd.rest;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,17 +13,21 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.hashedin.devd.model.GitMetric;
 import com.hashedin.devd.model.GitUser;
 import com.hashedin.devd.service.GitUserService;
+
 
 @Component
 @Path("/user")
 public class GitUserResource {
 	@Autowired
 	private GitUserService gitUserService;
-
+	
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<GitUser> listAll() {
@@ -30,7 +35,7 @@ public class GitUserResource {
 		// system.
 		return gitUserService.findAll();
 	}
-
+	
 	@POST
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
@@ -41,7 +46,8 @@ public class GitUserResource {
 		// repository.
 		gitUserService.save(user);
 		response.setStatus(Response.Status.CREATED.getStatusCode());
-		return Response.created(new URI("/user/" + user.getUserId())).build();
+		return Response.created(new URI("/user/" + user.getUserId()))
+				.build();
 	}
 
 }

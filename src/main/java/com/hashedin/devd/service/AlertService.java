@@ -6,7 +6,5 @@ import com.hashedin.devd.model.Alert;
 
 public interface AlertService {
 	List<Alert> findAll();
-
 	Alert save(Alert alert);
-
 }
