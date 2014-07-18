@@ -14,12 +14,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.crsh.cli.Required;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Component;
-
-import com.hashedin.devd.model.GitMetric;
 import com.hashedin.devd.model.GitUser;
 import com.hashedin.devd.service.GitUserService;
 

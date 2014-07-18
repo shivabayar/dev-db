@@ -1,14 +1,20 @@
 package com.hashedin.devd.rest;
 
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.hashedin.devd.model.GitModel;
 import com.hashedin.devd.repository.CollectRepository;
+
+
 //import com.hashedin.devd.service.CollectService;
 
 @Component
@@ -25,17 +31,10 @@ public class CollectResource {
 		collectRepository.collect();
 	}
 	
-//	@POST
-//	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-//	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-//	public Response create(Alert alert,
-//			@Context final HttpServletResponse response)
-//			throws URISyntaxException {
-//		// Handles POST on /alerts. Creates a new alert and adds it into an
-//		// repository.
-//		collectService.save(alert);
-//		response.setStatus(Response.Status.CREATED.getStatusCode());
-//		return Response.created(new URI("/collects/" + alert.getAlertId()))
-//				.build();
-//	}
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/{userId}")
+	public List<GitModel> find(@PathParam("userId") Long userId){
+		return collectRepository.find(userId);
+	}
 }
