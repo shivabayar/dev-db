@@ -21,7 +21,11 @@ public class DisplayList {
 			createdAtList.add(model.getCreatedAt());
 		}
 
+		System.out.println("in display filter ");
+		
 		displayList = display.frequencyCalculator(createdAtList);
 
+		System.out.println("after getting display list "+ displayList);
+		
 	}
 }
