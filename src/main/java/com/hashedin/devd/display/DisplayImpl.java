@@ -11,6 +11,7 @@ public class DisplayImpl implements DisplayInterface {
 		int l = 0;
 		CommitedAt commmitedAt = new CommitedAt();
 		ArrayList<Integer> a = new ArrayList<Integer>();
+		System.out.println("CreatedAtList" +CreatedAtList);
 		for (String createdAt : CreatedAtList) {
 			l = (int) commmitedAt.dayDifferenceCalculator(createdAt);
 			if (l < 8) {
