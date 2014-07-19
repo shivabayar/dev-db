@@ -118,6 +118,8 @@ public class GitApiReader {
 			}
 			setGitPullList(pullList);
 			setGitPushList(pushList);
+			System.out.println(pushList);
+			
 		}
 	}
 }

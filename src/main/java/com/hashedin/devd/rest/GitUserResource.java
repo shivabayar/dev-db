@@ -100,4 +100,6 @@ public class GitUserResource {
 	public GitUser findUserById(@PathParam("userId") Long gitUserId){
 		return gitUserService.find(gitUserId);
 	}
+	
+	
 }
