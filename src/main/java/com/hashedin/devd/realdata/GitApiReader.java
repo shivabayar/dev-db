@@ -2,12 +2,16 @@ package com.hashedin.devd.realdata;
 
 import java.net.*;
 import java.nio.charset.Charset;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import java.io.*;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,24 +63,21 @@ public class GitApiReader {
 		return sb.toString();
 	}
 
-	private static String parseDate(String date) {
+	private String parseDate(String unformattedDate) {
 
-		String ResultString = new String();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		unformattedDate = unformattedDate.replace("T", " ");
+		unformattedDate = unformattedDate.replaceAll("Z", "\0");
+		Date date = null;
+
 		try {
-			Pattern regex = Pattern.compile("([0-9]{4})-([0-9]{2})-([0-9]{2})");
-			Matcher regexMatcher = regex.matcher(date);
-			if (regexMatcher.find() && regex != null) {
-				ResultString = regexMatcher.group(0);
-				// System.out.println(ResultString);
-			} else {
-				ResultString = "0";
-			}
 
-		} catch (PatternSyntaxException ex) {
-			// Syntax error in the regular expression
+			date = formatter.parse(unformattedDate);
+
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
-
-		return ResultString;
+		return formatter.format(date).toString();
 	}
 
 	public void parseAndSaveCommitsAndPullRequestsToDB(String gitUserName)
@@ -119,7 +120,7 @@ public class GitApiReader {
 			setGitPullList(pullList);
 			setGitPushList(pushList);
 			System.out.println(pushList);
-			
+
 		}
 	}
 }
