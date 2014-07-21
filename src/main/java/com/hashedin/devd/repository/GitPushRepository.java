@@ -8,7 +8,9 @@ public interface GitPushRepository {
 
 	List<GitPush> findAll();
 
-	void save(GitPush gitPushList);
+	void  save(GitPush gitPushList);
+	
+	public void save(List<GitPush> gitPushList);
 
 	GitPush update(GitPush gitPush, Long gitPushId);
 

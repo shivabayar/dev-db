@@ -53,4 +53,14 @@ public class GitPushRepositoryImpl implements GitPushRepository {
 		return em.find(GitPush.class, gitPushId);
 	}
 
+	@Override
+	@Transactional
+	public void save(List<GitPush> gitPushList) {
+		// TODO Auto-generated method stub
+		for (GitPush gp : gitPushList) {
+			save(gp);
+		}
+
+	}
+
 }

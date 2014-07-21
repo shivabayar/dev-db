@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hashedin.devd.model.GitPull;
+import com.hashedin.devd.model.GitPush;
 import com.hashedin.devd.model.GitUser;
 import com.hashedin.devd.repository.GitUserRepository;
 
@@ -46,6 +48,18 @@ public class GitUserServiceImpl implements GitUserService {
 	public GitUser delete(Long gitUserId) {
 		// Deletes the task with the give taskId and returns the same.
 		return gitUserRepository.delete(gitUserId);
+	}
+
+	@Override
+	public List<GitPush> findPushListByUserId(Long gitUserId) {
+		System.out.println("Git push from gur   ->   "+gitUserRepository.find(gitUserId).getGitPush());
+		return gitUserRepository.find(gitUserId).getGitPush();
+	}
+
+	@Override
+	public List<GitPull> findPullListByUserId(Long gitUserId) {
+
+		return gitUserRepository.find(gitUserId).getGitPull();
 	}
 
 }

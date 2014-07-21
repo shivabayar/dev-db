@@ -54,10 +54,8 @@ public class GitPushServiceImpl implements GitPushService {
 	@Transactional
 	public List<GitPush> save(List<GitPush> gitPushList) {
 		// saves list of gitpull objects to db
-		
-		for(GitPush gp : gitPushList){
-			this.save(gp);
-		}
+
+		gitPushRepository.save(gitPushList);
 		return gitPushList;
 	}
 

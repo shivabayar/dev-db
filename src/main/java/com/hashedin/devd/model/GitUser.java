@@ -28,11 +28,11 @@ public class GitUser {
 	private String password; // password taken by dev-d
 
 	@XmlInverseReference(mappedBy = "gitUser")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "gitUser", targetEntity = GitPush.class)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "gitUser", targetEntity = GitPush.class)
 	private List<GitPush> gitPush;
 
 	@XmlInverseReference(mappedBy = "gitUser")
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "gitUser", targetEntity = GitPull.class)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "gitUser", targetEntity = GitPush.class)
 	private List<GitPull> gitPull;
 
 	public List<GitPush> getGitPush() {

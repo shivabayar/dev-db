@@ -1,9 +1,9 @@
 package com.hashedin.devd.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,44 +24,43 @@ public class GitPull {
 	private String pulledDate;
 	private String url;
 
+	@ManyToOne
+	private GitUser gitUser;
+
 	public GitUser getGitUser() {
 		return gitUser;
 	}
 
-	public void setGitUser(GitUser gitUser) {
-		this.gitUser = gitUser;
-	}
-
-	@ManyToOne
-	@JoinColumn(name = "userId", referencedColumnName = "userId")
-	private GitUser gitUser;
-
 	public long getId() {
 		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public String getPulledDate() {
 		return pulledDate;
 	}
 
-	public void setPulledDate(String pulledDate) {
-		this.pulledDate = pulledDate;
+	public String getStatus() {
+		return status;
 	}
 
 	public String getUrl() {
 		return url;
+	}
+
+	public void setGitUser(GitUser gitUser) {
+		this.gitUser = gitUser;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setPulledDate(String pulledDate) {
+		this.pulledDate = pulledDate;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setUrl(String url) {

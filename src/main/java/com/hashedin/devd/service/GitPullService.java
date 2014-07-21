@@ -9,9 +9,9 @@ public interface GitPullService {
 
 	List<GitPull> findAll();
 
-	GitPull save(GitPull gitPull);
+	void save(GitPull gitPull);
 
-	List<GitPull> save(List<GitPull> gitPull);
+	void save(List<GitPull> gitPull);
 	
 	GitPull update(GitPull gitPull, Long gitPullId);
 

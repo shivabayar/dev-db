@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hashedin.devd.model.GitPull;
 
-
-
 @Repository
 public class GitPullRepositoryImpl implements GitPullRepository {
 
@@ -38,6 +36,16 @@ public class GitPullRepositoryImpl implements GitPullRepository {
 		em.persist(gitPull);
 		em.flush();
 		return gitPull;
+	}
+
+	@Transactional
+	@Override
+	public void save(List<GitPull> gitPullList) {
+		// TODO Auto-generated method stub
+		for (GitPull gp : gitPullList) {
+			save(gp);
+		}
+
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package com.hashedin.devd.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -23,7 +23,6 @@ public class GitPush {
 	private String committedDate;
 
 	@ManyToOne
-	@JoinColumn(name = "userId", referencedColumnName = "userId")
 	private GitUser gitUser;
 
 	public GitUser getGitUser() {

@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.hashedin.devd.filter.GitFilter;
 import com.hashedin.devd.model.GitPull;
 import com.hashedin.devd.model.GitPush;
 import com.hashedin.devd.model.GitUser;
@@ -41,6 +42,8 @@ public class GitUserResource {
 	@Autowired
 	private GitPushService gitPushService;
 
+	public GitApiReader gar = new GitApiReader();
+
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<GitUser> listAll() {
@@ -58,7 +61,7 @@ public class GitUserResource {
 		// Handles POST on /user. Creates a new user and adds it into an
 		// repository.
 		gitUserService.save(user);
-		GitApiReader gar = new GitApiReader();
+		// GitApiReader gar = new GitApiReader();
 		List<GitPull> gitPullList = null;
 		List<GitPush> gitPushList = null;
 
@@ -66,12 +69,30 @@ public class GitUserResource {
 		gitPullList = gar.getGitPullList();
 		gitPushList = gar.getGitPushList();
 
-		if (gitPullList != null) {
-			gitPullService.save(gitPullList);
+		System.out.println("\n\n\nUser infroamtion " + user.getUserId());
+		// if (gitPullList != null) {
+		// gitPullService.save(gitPullList);
+		// }
+
+		// if (gitPushList != null) {
+		//
+		// gitPushService.save(gitPushList);
+		// }
+
+		for (GitPush gp : gitPushList) {
+
+			gp.setGitUser(user);
+			gitPushService.save(gp);
+			// System.out.println("\n\n\nGit push to user mapping " + gp.getId()
+			// + " -> " + gp.getGitUser().getUserId());
 		}
 
-		if (gitPushList != null) {
-			gitPushService.save(gitPushList);
+		for (GitPull gp : gitPullList) {
+
+			gp.setGitUser(user);
+			gitPullService.save(gp);
+			// System.out.println("\n\n\nGit push to user mapping " + gp.getId()
+			// + " -> " + gp.getGitUser().getUserId());
 		}
 
 		response.setStatus(Response.Status.CREATED.getStatusCode());
@@ -93,13 +114,38 @@ public class GitUserResource {
 		gitUser.setPassword(password);
 		return gitUser;
 	}
-	
+
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/{userId}")
-	public GitUser findUserById(@PathParam("userId") Long gitUserId){
+	public GitUser findUserById(@PathParam("userId") Long gitUserId) {
 		return gitUserService.find(gitUserId);
 	}
-	
-	
+
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/{userId}/pushlist")
+	public List<GitPush> findPushListByUserId(
+			@PathParam("userId") Long gitUserId) {
+		GitFilter gf = new GitFilter();
+		gf.generateBargraphData(gitUserService.findPushListByUserId(gitUserId));
+		return gitUserService.findPushListByUserId(gitUserId);
+	}
+
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/{userId}/pulllist")
+	public List<GitPull> findPullListByUserId(
+			@PathParam("userId") Long gitUserId) {
+		return gitUserService.findPullListByUserId(gitUserId);
+	}
+
+//	@GET
+//	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+//	@Path("/{userid}/gitcommittrendgraph")
+//	public void gitcommittrendgraph(@PathParam("userId") Long gitUserId) {
+//		GitFilter gf = new GitFilter();
+//		gf.generateBargraphData(gitUserService.findPushListByUserId(gitUserId));
+//	}
+
 }

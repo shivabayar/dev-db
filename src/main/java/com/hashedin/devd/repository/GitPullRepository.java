@@ -10,6 +10,8 @@ public interface GitPullRepository {
 	List<GitPull> findAll();
 
 	GitPull save(GitPull gitPull);
+	
+	void save(List<GitPull> gitPullList);
 
 	GitPull update(GitPull gitPull, Long gitPullId);
 

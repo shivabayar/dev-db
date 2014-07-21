@@ -16,4 +16,6 @@ public interface GitPushService {
 	GitPush delete(Long gitPushId);
 	
 	List<GitPush> save(List<GitPush> gitPushList);
+
+
 }

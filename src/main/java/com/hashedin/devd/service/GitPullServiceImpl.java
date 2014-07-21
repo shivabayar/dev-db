@@ -28,18 +28,17 @@ public class GitPullServiceImpl implements GitPullService {
 		// Returns all the tasks in our system.
 		return gitPullRepository.findAll();
 	}
-	
+
 	@Override
 	@Transactional
-	public GitPull save(GitPull gitPull) {
+	public void save(GitPull gitPull) {
 		// Saves the given task object and returns the same.
 		gitPullRepository.save(gitPull);
-		return gitPull;
+		
 	}
 
 	@Override
-	public GitPull update(GitPull gitPull,
-			Long gitPullId) {
+	public GitPull update(GitPull gitPull, Long gitPullId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -52,13 +51,12 @@ public class GitPullServiceImpl implements GitPullService {
 
 	@Override
 	@Transactional
-	public List<GitPull> save(List<GitPull> gitPullList) {
+	public void save(List<GitPull> gitPullList) {
 		// saves list of gitpull objects to db
-		
-		for(GitPull gp : gitPullList){
-			this.save(gp);
-		}
-		return gitPullList;
+
+		gitPullRepository.save(gitPullList);
+
 	}
 
+	
 }
